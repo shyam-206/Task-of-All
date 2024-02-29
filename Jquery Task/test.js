@@ -80,7 +80,7 @@ $(document).ready(function () {
         let ageInYear = ageInMillisec / (1000 * 60 * 60 * 24 * 365.25);
         let age = Math.floor(ageInYear);
 
-        if (age < 18) {
+        if (age < 18  || dateofbirth.val() == "") {
             dateofbirth.css('border', '1px solid red');
             dateOfBirthError.text('Please Enter valid Date of Birth');
             dateofbirth.addClass('error-message');
