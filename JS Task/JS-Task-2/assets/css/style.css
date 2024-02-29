@@ -1,0 +1,37 @@
+.main{
+    background:  #f5cac3;
+    padding:3rem 2rem;
+}
+.btn:focus,.btn:active{
+    outline: none !important;
+    box-shadow: none;
+}
+label{
+    font-weight: bold;
+}
+.modal-content{
+    background-color: #d6ccc2;
+    
+}
+
+#addNewStudent{
+    background-color: #84a59d;
+    
+}
+#submit,#edit,#edu-edit,#edu-delete{
+    background-color: #669bbc;
+    color: white;
+}
+.form-control:active,.form-control:focus{
+    outline: none !important;
+    box-shadow: none;
+}
+/* 
+input:invalid{
+    border: 1px red solid;
+}
+
+textarea:invalid {
+    border: 1px solid red;
+} */
+

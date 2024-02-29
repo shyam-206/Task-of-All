@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="assests/Bootstrap/css/bootstrap.min.css" />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="assests/css/style.css" />
+    <!-- font awosome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Admin Panel Dabang</title>
+</head>
+<body class="bg-main">
+    <!-- main container -->
+    <div class="container-fluid d-flex px-0">
+        <!-- sidebar -->
+        <div class="sidebar position-sticky" id="side_nav">
+            <div class="offcanvas-header d-flex justify-content-center align-items-center fs-5">
+                <img src="assests/img/dummy logo.png" class="logo" />
+                <span class="header-name mx-3 sidebar-link">Dabang</span>
+            </div>
+            <div class="offcanvas-body d-flex justify-content-center align-items-center">
+                <!-- sidebar navlink -->
+                <ul class="list-unstyled px-2">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="sidebar-link">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <span class="sidebar-link">LeaderBoard</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="sidebar-link">Order</span>   
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="sidebar-link">Products</span>
+                        </a>
+                    </li class="list-item">
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span class="sidebar-link">Sales Report</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-message"></i>
+                            <span class="sidebar-link">Messages</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-gear"></i>
+                            <span class="sidebar-link">Settings</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="text-decoration-none ">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span class="sidebar-link">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            <!-- End of the sidebar navlink -->
+            </div>
+
+            <div class="sidebar-link" style="padding-top: 10rem;">
+                <div class="d-flex flex-column align-items-center justify-content-center m-3 p-2 text-center" style="background-color: #5D5FEF; color: white; border-radius: 10px;">
+                    <img class="rounded img-fluid" src="/assests/img/Logo.png" alt="Icon">
+                    <h4>Dabang Pro</h4>
+                    <p class="py-2 px-2">Get access to all fatures on tetumbas</p>
+                    <button class="fw-bold bg-light text-primary border-0 rounded py-2 px-3 get-pro-btn">Get Pro</button>
+                </div>
+            </div>
+        </div>
+        <!-- End of sidebar -->
+
+        <!-- content -->
+        <div class="container-fluid p-0 m-0" id="content">
+          <!-- navbar  -->
+          <div class="bg-white d-flex align-items-center justify-content-between p-2">
+            <div>
+                <button  type="button" class="btn border-1 toggle-btn" onclick="openNav()">
+                        <i class="fa-solid fa-bars m-1"></i>
+                </button>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control form-input w-100" placeholder="Search anything...">
+                </div>
+                <div class="m-1">
+                    <button class="btn btn-warning position-relative p-0">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="bg-danger border border-light p-1 rounded-circle position-absolute top-0 end-0"></span>
+                    </button>
+                </div>
+                <img src="assests/img/profile.png" alt="" class="image-fluid" style="height: 45px;">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Shyam
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="#">My Account</a></li>
+                      <li><a class="dropdown-item" href="#">log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <!-- end of navbar -->
+
+
+          <!-- main content -->
+          <div class="main-content mx-4">
+            <!-- Started first row -->
+            <div class="row">
+                <!-- left container -->
+                <div class="col-lg-8 pt-4">  
+                    <div class="bg-white left p-md-3">
+                        <div class="row p-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-lg-">
+                                    <p class="h4">Today's Sale</p>
+                                    <small>Sales Summary</small>
+                                </div>
+                                <div class="col-lg- button">
+                                    <button type="button" class="btn border mt-2 pt-0"><i class="fa-solid fa-upload"></i>Export</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card section  -->
+                        <div class="row p-lg-2">
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card border-0 ">
+                                    <div class="card-body card1 p-">
+                                        <i class="fa-solid fa-signal d-flex align-items-center justify-content-center p-1"></i>
+                                        <h5 class="card-title px-1 py-2">$1k</h5>
+                                        <p class="card-title p-1">Total sales</p>
+                                        <p class="card-text">+8% from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card border-0">
+                                    <div class="card-body card2">
+                                        <i class="fa-solid fa-file d-flex align-items-center justify-content-center p-1"></i>
+                                        <h5 class="card-title px-1 py-2">300</h5>
+                                        <p class="card-title p-1">Total Product</p>
+                                        <p class="card-text">+8% from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card border-0">
+                                    <div class="card-body card3">
+                                        <i class="fa-solid fa-tag d-flex align-items-center justify-content-center p-1"></i>
+                                        <h5 class="card-title px-1 py-2">5</h5>
+                                        <p class="card-title p-1">Product Sold</p>
+                                        <p class="card-text">+8% from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6 my-2">
+                                <div class="card border-0">
+                                    <div class="card-body card4">
+                                        <i class="fa-solid fa-user-plus d-flex align-items-center justify-content-center p-1"></i>
+                                        <h5 class="card-title px-1 py-2">8</h5>
+                                        <p class="card-title p-1">New Customer</p>
+                                        <p class="card-text">+8% from yesterday</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- end of card section -->
+                    </div>
+                </div>
+                <!-- end of left container -->
+
+                <!-- right container -->
+                <div class="col-lg-4 pt-4">
+                    <div class="bg-white right p-md-2">
+                        <div class="row px-3 py-1">
+                            <div class="col-lg-12">
+                                <p class="h4 ps-2 pt-2">Visitor Insights</p>    
+                            </div>
+                        </div>
+                        <div class="row py-1">
+                            <div class="col-lg-12">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="flush-headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                          Accordion Item #1
+                                        </button>
+                                      </h2>
+                                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repudiandae autem error quibusdam sapiente ea. Accusantium excepturi minus magni fugiat, harum repudiandae tenetur voluptatum enim ducimus, debitis explicabo quis eius?
+                                            </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                      <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                          Accordion Item #2
+                                        </button>
+                                      </h2>
+                                      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <p>
+                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam tempora necessitatibus quisquam at asperiores. Deleniti alias, recusandae earum quo placeat nisi distinctio voluptate labore. Dolorem ad doloremque dolorum neque eaque?
+                                            </p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of right container -->
+                </div>
+            </div>
+            <!-- End of first row -->
+
+            <!-- Second Row -->
+            <div class="row">
+                <!-- left container -->
+                <div class="col-lg-6 pt-4">
+                    <div class="bg-white left table-responsive">
+                        <h4 class="
+                        ps-2 pt-2">Visitor List</h4>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Joining Date</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">01</th>
+                                <td>Stephen P.Osborn</td>
+                                <td>17 Jan,2023</td>
+                                <td><a href="#"><i class="fa-solid fa-pen me-2"></i></a><i class="fa-solid fa-trash"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">02</th>
+                                <td>Odessa G.Mettler</td>
+                                <td>13 Feb,2023</td>
+                                <td><a href="#"><i class="fa-solid fa-pen me-2"></i></a><i class="fa-solid fa-trash"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">03</th>
+                                <td>Judith H.richards</td>
+                                <td>13Feb,2023</td>
+                                <td><a href="#"><i class="fa-solid fa-pen me-2"></i></a><i class="fa-solid fa-trash"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">04</th>
+                                <td>jack B.Perez</td>
+                                <td>10 Feb,2023</td>
+                                <td><a href="#"><i class="fa-solid fa-pen me-2"></i></a><i class="fa-solid fa-trash"></i></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">05</th>
+                                <td>Chris B.Ryant</td>
+                                <td>10 Feb,2023</td>
+                                <td><a href="#"><i class="fa-solid fa-pen me-2"></i></a><i class="fa-solid fa-trash"></i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end of the left container -->
+
+                <!-- right container -->
+                <div class="col-lg-6 pt-4">
+                    <div class="bg-white right p-md-2">
+                        <h4 class="ps-2 pt-2">Top Prodcuts</h4>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Popularity</th>
+                                <th scope="col">Sales</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">01</th>
+                                <td>Home Decore Range</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-1" role="progressbar" style="width: 45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn progress-btn-1">45%</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">02</th>
+                                <td>Disney Princess Pink Bag18'</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-2" role="progressbar" style="width: 29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn progress-btn-2">29%</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">03</th>
+                                <td>Bathroom Essentials</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-3" role="progressbar" style="width: 18%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn progress-btn-3">18%</button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">04</th>
+                                <td>Apple Smartwatch</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-4" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td><button class="btn progress-btn-4">25%</button></td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Second row -->
+
+            <!-- Third row -->
+            <div class="row">
+                <!-- Left container -->
+                <div class="col-lg-6 py-4">
+                    <div class="bg-white px-2 h-100 p-md-2" style="border-radius: 10px;">
+                        <h4>Main Products</h4>
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Product 1</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Product 2</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <img src="assests/img/dummy-image-square 1.png alt=">
+                                <div>
+                                    <h5>What is the Products?</h5>
+                                    <p class="dummy-text">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum error tenetur consequuntur eos asperiores qui vitae, aliquam recusandae? Sapiente ipsum molestiae eius corrupti expedita consectetur minus? Vitae, hic. Hic, soluta.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <img src="assests/img/dummy-image-square 1.png alt=">
+                                <div>
+                                    <h5>What is the Products?</h5>
+                                    <p class="dummy-text">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod et natus itaque voluptates, aliquid praesentium numquam odio eaque quam fugit alias rerum omnis nam culpa quia voluptatem corporis nemo ipsa!
+                                    </p>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <!-- end of left container -->
+
+                <!-- right container  -->
+                <!-- <div class="col-lg-6 py-4">
+                    <div class="h-100">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                               <div class="bg-white h-100 d-flex justify-content-center" style="border-radius: 10px;"> 
+                                <img src="assests/img/Sales Mapping.png" alt="" class="img-fluid">
+                               </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="bg-white h-100 d-flex justify-content-center" style="border-radius: 10px;">
+                                    <img src="assests/img/Volume.png" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-lg-3 py-lg-4 pb-md-4 pb-4">
+                    <div class="bg-white h-100" style="border-radius: 10px;"> 
+                     <!-- <img src="assests/img/Sales Mapping.png" alt="" class="img-fluid"> -->
+                        <h4 class="p-2">Sales Mapping by Country</h4>
+                        <img src="assests/img/world.png" alt="" class="img-fluid p-2">
+                    </div>
+                 </div>
+                 <div class="col-lg-3 py-lg-4 pb-md-4 pb-4">
+                     <div class="bg-white h-100" style="border-radius: 10px;">
+                        <h4 class="p-2">Volume vs Service level</h4>
+                        <img src="/assests/img/Volume.png" alt="" class="img-fluid p-2">
+                     </div>
+                 </div>
+                <!-- end of the right container -->
+            </div>
+            <!-- end of the third row -->
+          </div>
+          <!-- end of main content -->
+        </div>
+        <!-- End of content -->
+    </div>
+    <!-- End of main container -->
+
+    <!-- bootstrap js -->
+    <script src="assests/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="assests/Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assests/js/script.js"></script>
+    
+</body>
+</html>

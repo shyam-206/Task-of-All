@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer src="script.js"></script>
+    <title>Task 2</title>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <!-- for the logo image -->
+            <div class="logo">
+                <img src="assest/logo.png" alt="" class="logo-img">
+            </div>
+
+            <!-- menu of the navbar -->
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Services</a></li>
+                <button id="btn1">Account</button>               
+            </ul>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="left">
+           <p class="para1">LITTLE MORE ABOUT US</p>
+           <h1 class="heading">YOUR KIDS IS OUR FUTURE</h1>
+           <p class="detail" style="gap: 0;">Lorem ipsum dolor sit 
+            amet,<br> consectetur adipiscing elit, sed do eiusmod <br>
+            tempor incididunt ut labore et dolore magna aliqua.</p>
+            <button id="btn2">Read more</button> 
+        </div>
+        <div class="right">
+            <img src="assest/right-girl.png" alt="">    
+        </div>
+    </div>
+
+    <!-- box -->
+    <div class="box">
+        <div class="card card1">
+            <h3 class="card-heading">Free Courses</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque laboriosam adipisci unde, doloribus tempora labore enim quam non magnam distinctio doloremque eius facilis, sed voluptates placeat deleniti est sit quod.</p>
+        </div>
+        <div class="card card2">
+            <h3 class="card-heading">Free Courses</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis quo culpa necessitatibus incidunt vero, distinctio dolorem excepturi possimus veritatis eum eaque odio illo, accusantium nihil dignissimos? Veritatis accusantium quam reprehenderit.</p>
+        </div>
+        <div class="card card3">
+            <h3 class="card-heading">Free Courses</h3>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis at nostrum quas aut dolorum accusantium minus deleniti modi. Ipsam aspernatur molestias quasi iste consectetur! Quisquam ut debitis facilis nostrum ratione?</p>
+        </div>
+        <div class="card card4">
+            <h3 class="card-heading">Free Courses</h3>
+            <hr>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit enim, officia odio dolorum vitae consequuntur quae consectetur molestiae nisi ullam incidunt excepturi asperiores harum, a suscipit eveniet autem rem. Voluptate.</p>
+        </div>
+        
+        
+    </div>
+    <div class="container1">
+        <p class="container-heading">Best Classes and Camps</p>
+        <p class="container-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum impedit, quam consequatur vitae maiores sequi quos omnis voluptate aliquam deserunt dolorem quasi quas, nisi magni odio. Modi, molestiae ipsum!</p>
+        <div class="s-box">
+            <div class="s-box1">
+                <div class="overlay">One-of-a-kind Classes</div>
+                <img src="assest/con-1.png" alt="">
+            </div>
+            <div class="s-box1">
+                <div class="overlay">Summer Camps</div>
+                <img src="assest/con-2.png" alt="">
+            </div>
+            <div class="s-box1">
+                <div class="overlay">Summer Camps</div>
+                <img src="assest/con-3.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="price-menu">
+        <div class="upper">
+            <div>We offer great <span style="color: #F17C21;"> price</span> plan for the application</div>
+            <div class="upper-lower">
+                <button style="background-color: #F17C21; color: white;" id="monthly" onclick="my_fun_month()">monthly</button>
+                <button style="background-color: white;" id="yearly" onclick="my_fun_year()">yearly</button>
+            </div>
+        </div>
+        <div class="lower">
+            <div class="recommend">Recommended</div>
+            <div class="lower-card">
+                <div>
+                    <h3>Starter</h3>
+                    <div id="lower-card-1-contain" >Starter pack to help you to get started
+                    </div>
+                </div>
+                <div id="lower-card-1-lower-div">
+                    <p id="lower-card-1-para"><span style="font-weight: bold; font-size: 22px"> Free </span></p>
+                    <button id="lower-card-1">Get Started</button>
+                </div>
+            </div>
+            <div class="lower-card recommend-card">
+                <div>
+                    <h3>Pro</h3>
+                    <div>More power for small teams create project plans with confidence</div>
+                </div>
+                <div>
+                    <p id="lower-card-2-para"><span style="font-weight: bold; font-size: 22px">$ 100 </span> / <span>month</span></p>
+                    <button id="lower-card-2">Get Started</button>
+                </div>
+            </div>
+            <div class="lower-card">
+                <div>
+                    <h3>Business+</h3>
+                    <div>For companies that need to manage work happening across multiple teams.</div>
+                </div>
+                <div>
+                    <p id="lower-card-3-para"><span style="font-weight: bold; font-size: 22px">$ 100 </span> / <span>month</span></p>
+                    <button id="lower-card-3">Get Started</button>
+                </div>
+            </div>
+            <div class="lower-card recommend-card">
+                <div>
+                    <h3>Enterprise</h3>
+                    <div>For enterprise that need additional security, control, and support.</div>
+                </div>
+                <div>
+                    <p id="lower-card-4-para"><span style="font-weight: bold; font-size: 22px"> Custom</span></p>
+                    <button id="lower-card-4">Contact sales</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div style="font-size: 30px; font-weight: bold;">Call To Action</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae laborum repellat fuga id architecto illo culpa eveniet, officiis ratione delectus consequuntur error quae eligendi. Veritatis placeat cupiditate iusto recusandae voluptas?</div>
+        <div><button>Get Strated</button></div>
+    </div>
+    <div class="footer">
+        <div class="footer-1">
+            <div class="left">
+                <img src="assest/circle 2.png" alt="" id="footer-img">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti officia vero eius beatae quaerat rem, hic neque officiis architecto nobis minima qui atque culpa ipsum non nisi ipsa debitis.
+                Voluptates dolorem, quos corrupti vel dignissimos cum provident aut ex quisquam ipsum voluptatem eaque reiciendis. Inventore rerum rem dolores. Sequi ipsam cum porro molestiae repellendus quo, dolor ullam consequatur minus..</p>
+            </div>
+            <div class="right">
+                <p class="footer-right-heading">Subscribe to our newsletter</p>
+                <div class="subscribe">
+                    <p>Enter your email</p>
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-2">
+            <div style="padding-top: 15px; padding-left: 15px;">Copyright © 2024  -  Shaligraminfotech</div>
+            <div class="footer-link">
+                <ul class="footer-link-list">
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-facebook"></i></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-youtube"></i></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Data</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- Add your other CSS files -->
+</head>
+<body>
+    <table id="student_table" class="display">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Graduation Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="record_body">
+            <!-- Student data rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <!-- Your modal and other HTML content -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- Add your other script files -->
+
+    <script>
+        $(document).ready(function() {
+            let students = [
+                { firstName: "John", lastName: "Doe", dateOfBirth: "1990-01-01", email: "john@example.com", address: "123 Street", graduationYear: 2022, id: 1 },
+                { firstName: "John", lastName: "Doe", dateOfBirth: "1990-01-01", email: "john@example.com", address: "123 Street", graduationYear: 2022, id: 2 },
+                
+                // Add more student data as needed
+            ];  
+
+            let dataTable = $('#student_table').DataTable();
+
+            function displayStudents() {
+                dataTable.clear().draw();
+
+                students.forEach(student => {
+                    let row = [
+                        student.firstName,
+                        student.lastName,
+                        student.dateOfBirth,
+                        student.email,
+                        student.address,
+                        student.graduationYear,
+                        `<div class="d-flex">
+                            <button class="btn btn-primary btn-sm edit-btn mx-2" data-student-id="${student.id}" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-btn mx-2" data-student-id="${student.id}">Delete</button>
+                        </div>`
+                    ];
+
+                    dataTable.row.add(row).draw();
+                });
+            }
+
+            displayStudents();
+        });
+    </script>
+</body>
+</html>

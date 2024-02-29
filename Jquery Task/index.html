@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+ 
+    <title>Student Register Form Task test</title>
+</head>
+<body>
+
+    <div class="container main mt-5">
+        <header class="d-flex align-items-center justify-content-between">
+            <h3>Student Data</h3>
+            <div>
+                <button type="button" class="btn" id="addNewStudent" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Student</button>
+            </div>
+        </header>
+        <hr style="height: 0.1rem;">
+        <div class="table-responsive">
+            <table class="table" id="table1">
+                <thead>
+                   <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Graduation Year</th>
+                        <th>Action</th>
+                   </tr>
+                </thead>
+                <tbody id="record_body">
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="modal-title">New Student Detail</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" id="myForm">
+                    <div class="container">
+                        <div class="student-container">
+                            <div class="row">
+                                <div class="col-lg-12">   
+                                    <label for="firstname" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" placeholder="Krunal" id="firstname" required>
+                                    <div id="firstNameError" class="text-danger error-message"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-lg-12">
+                                    <label for="lastname" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Dhote" id="lastname">
+                                    <div id="lastNameError" class="text-danger error-message"></div>
+                                </div>
+                            </div>  
+                            <div class="row mt-3">
+                                <div class="col-lg-12">
+                                    <label for="date" class="form-label">Date of Birth</label>
+                                    <input type="date" name="date" class="form-control" id="dateofbirth" max="02/28/2006">
+                                    <div id="dateOfBirthError" class="text-danger error-message"></div>
+                                </div>
+                            </div>  
+                            <div class="row mt-3">
+                                <div class="col-lg-12">   
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" placeholder="xyz123@shaligraminfotech.com" id="email">
+                                    <div id="emailError" class="text-danger error-message"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-lg-12">
+                                    <label for="address" class="form-label">Address</label>
+                                    <textarea name="address" id="address" cols="30" rows="1"class="form-control" ></textarea>
+                                    <div id="addressError" class="text-danger error-message"></div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-lg-12">
+                                    <label for="date" class="form-label">Graduation Year</label> 
+                                    <input type="month" name="date"  class="form-control" id="gyear"> 
+                                    <div id="graduationYearError" class="text-danger error-message"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="education-container mt-5">
+                            <header class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <p class="h3">Education</p>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn border-0" id="addNewRow" style="background: #669bbc; color: white;"><i class="fa-solid fa-plus fs-5"></i></button>
+                                </div>
+                            </header>
+                            <div class="table-responsive"> 
+                                <table class="table" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Degree/Board</th>
+                                            <th>School/Collage</th>
+                                            <th>Start Date</th>
+                                            <th>Passout Year</th>
+                                            <th>Percentage</th>
+                                            <th>Backlog</th>
+                                            <th class="btn-div"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                        <tr>
+                                            <td><input type="text" name="degree" class="form-control" id="degree"></td>
+                                            <td><input type="text" name="schoolCollage" class="form-control"></td>
+                                            <td><input type="month" name="startDate" class="form-control"></td>
+                                            <td><input type="month" name="endDate" class="form-control"></td>
+                                            <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100"></td>
+                                            <td><input type="number" name="backlog"  min="0" class="form-control"></td>
+                                            <td class="btn-div">
+                                                <button type="button" class="border-0 btn mx-1" id="edu-delete" disabled><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" name="degree" class="form-control" id="degree"></td>
+                                            <td><input type="text" name="schoolCollage" class="form-control"></td>
+                                            <td><input type="month" name="startDate" class="form-control"></td>
+                                            <td><input type="month" name="endDate" class="form-control"></td>
+                                            <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100"></td>
+                                            <td><input type="number" name="backlog"  min="0" class="form-control"></td>
+                                            <td class="btn-div">
+                                                <button type="button" class="border-0 btn mx-1" id="edu-delete" disabled><i class="fa-solid fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="submit-button d-flex mt-2 justify-content-end align-items-center">
+                            <!-- <button type="button" class="btn add-btn border-0 mx-1" id="edit">Edit</button> -->
+                            <button form="myForm" class="btn add-btn border-0 mx-1" id="submit">Save</button>
+                            <!-- <button type="button" class="btn add-btn border-0 mx-1" id="update" style="display: none;">Update</button> -->
+
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="./test.js"></script>
+
+</body>
+</html>

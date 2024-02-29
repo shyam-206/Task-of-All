@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+.main{
+    padding: 0 300px 0 300px;
+    margin-bottom: 0;
+    
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style-type:none;
+    color: black;
+    margin-left: 200px;
+}
+.list {
+    display: flex;
+    align-items: center;
+    margin:20px;
+    font-size: medium;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.section1{
+    width: 1300px;
+    height: 208px;
+    background-color: #F5C0AC;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.account{
+    background-color: #282C35;
+    border-radius: 10px;
+    color: white;
+    right: 0;
+    padding: 10px;
+    
+}
+
+.sub-container{
+    display: flex;
+
+}
+.left{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 440px;
+    height: 560px;
+    background-color: #DBCFCF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.right{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+.section2{
+    width: 853px;
+    height: 255px;
+    background-color: #DBCFCF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.right-container{
+    display: flex;
+}
+.section3{
+    margin-top: 0.5rem;
+    width: 530px;
+    height: 297px;
+    background-color: #DBCFCF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.section4{
+    margin-top: 0.5rem;
+    margin-left: 0.5rem ;
+    width: 315px;
+    background-color: #DBCFCF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px; 
+}
+.footer{
+    background-color: #000000;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+    height: 70px;
+    bottom: 0;
+    list-style-type:none;
+}
+.para{
+    font-size:20px;
+    margin-left: 35px;
+    position: absolute;
+    left: 270px;
+}
+
+.icons{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    position: absolute;
+    right: 370px;
+}
+.icons2{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    list-style-type:none;
+}
+.img{
+
+    width: 40px;
+    height: 40px;
+}

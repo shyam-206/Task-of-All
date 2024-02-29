@@ -1,0 +1,22 @@
+/* *{
+    outline: 1px solid green;
+} */
+.container{
+    background-color:#f5cac3;
+    margin-top: 5rem;
+}
+.btn-div{
+    padding: 0;
+    width: 55px;
+    height: 55px;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn:focus,.btn:active{
+    outline: none !important;
+    box-shadow: none;
+}

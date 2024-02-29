@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+
+    <!-- ==== Bootstrap css ==== -->
+    <link rel="stylesheet" href="assests/bootstrap/css/bootstrap.min.css" />
+
+    <!-- ==== Custom css ==== -->
+    <link rel="stylesheet" href="assests/css/style.css" />
+
+    <!-- ==== Font Awosome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- ==== Google Fonts ==== -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Slick Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid m-0 p-0">
+      <!-- ==== Header ==== -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-outline-success">
+        <div class="container px-0">
+          <a class="navbar-brand" href="#"
+            ><img src="assests/image/Logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Feature</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Testimonial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+            </ul>
+            <form class="d-flex justify-content-center algn">
+              <button class="btn btn-outline-success mx-1" type="submit">
+                Login
+              </button>
+              <button class="btn btn-success mx-1" type="submit">
+                Sign Up
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- ==== End Header ==== -->
+
+      <!-- ==== Hero Section -->
+      <section class="hero d-flex align-items-center py-3">
+        <div class="container-fluid">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide carousel-danger"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators" style="margin: 0 18% 1rem">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active carousel-btn"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+                class="carousel-btn"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+                class="carousel-btn"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container d-block w-100">
+                  <div class="row">
+                    <div
+                      class="col-lg-6 d-lg-flex flex-column justify-content-lg-center left1"
+                    >
+                      <h1>
+                        Lessons and insights
+                        <span class="hero-span-text"> from 8 years</span>
+                      </h1>
+                      <p class="text-muted">
+                        Where to grow your business as a photographer: site or
+                        social media?
+                      </p>
+                      <div>
+                        <button class="btn hero-btn border-0">Register</button>
+                      </div>
+                    </div>
+                    <div
+                      class="col-lg-6 d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="assests/image/hero-image.png"
+                        alt="" class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="container d-block w-100">
+                  <div class="row">
+                    <div
+                      class="col-lg-6 d-lg-flex flex-column justify-content-lg-center"
+                    >
+                      <h1>
+                        Lessons and insights
+                        <span class="hero-span-text"> from 8 years</span>
+                      </h1>
+                      <p class="text-muted">
+                        Where to grow your business as a photographer: site or
+                        social media?
+                      </p>
+                      <div>
+                        <button class="btn hero-btn border-0">Register</button>
+                      </div>
+                    </div>
+                    <div
+                      class="col-lg-6 d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="assests/image/hero-image.png"
+                        alt="" class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="container d-block w-100">
+                  <div class="row">
+                    <div
+                      class="col-lg-6 d-flex flex-column justify-content-lg-center"
+                    >
+                      <h1>
+                        Lessons and insights
+                        <span class="hero-span-text"> from 8 years</span>
+                      </h1>
+                      <p class="text-muted">
+                        Where to grow your business as a photographer: site or
+                        social media?
+                      </p>
+                      <div>
+                        <button class="btn hero-btn border-0">Register</button>
+                      </div>
+                    </div>
+                    <div
+                      class="col-lg-6 d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src="assests/image/hero-image.png"
+                        alt="" class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button> -->
+          </div>
+        </div>
+      </section>
+      <!-- End Hero section -->
+
+      <!-- ==== main section === -->
+
+      <div class="main">
+        <!-- ===== Client section ====-->
+        <section class="client d-flex py-3">
+          <div class="container">
+            <header
+              class="section-header text-center pb-5"
+            >
+              <h2>Our Clients</h2>
+              <p class="text-muted">
+                We have been working with some Fortune 500+ clients
+              </p>
+            </header>
+
+            <!-- ==== Slider section -->
+            <div class="container mx-auto company-section">
+              <div class="row">
+                <div class="d-flex justify-content-between logo-carousel silder">
+                  <div class="col-lg- col-md- mx-2 slide">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-1.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-2.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-3.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-4.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-5.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-6.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg- col-md- mx-2">
+                    <div class="slide">
+                      <img
+                        src="assests/image/client-img-3.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== End of Client section -->
+
+        <!-- ==== Community Section ==== -->
+        <section class="community d-flex py-3">
+          <div class="container">
+            <header
+              class="section-header text-center">
+              <p class="h2 mx-0">
+                Manage your entire community <br /><span
+                  >in a single system</span
+                >
+              </p>
+              <p class="text-muted">Who is Nextcent suitable for?</p>
+            </header>
+
+            <div class="container px-0">
+              <div class="row px-2">
+                <div
+                  class="col-lg-4 py-2">
+                  <div class="card h-100">
+                    <div class="card-body text-center">
+                      <i class="fa-solid fa-users fs-2 py-2"></i>
+                      <h4 class="card-title py-2">Membership Organisations</h4>
+                      <p class="card-text text-muted py-2">
+                        Our membership management software provides full
+                        automation of membership renewals and payments
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-4 py-2"
+                >
+                  <div class="card h-100">
+                    <div class="card-body text-center">
+                      <i class="fa-solid fa-city fs-2 py-2"></i>
+                      <h4 class="card-title py-2">National Associations</h4>
+                      <p class="card-text text-muted py-2">
+                        Our membership management software provides full
+                        automation of membership renewals and payments
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-4 py-2"
+                >
+                  <div class="card h-100">
+                    <div class="card-body text-center">
+                      <i class="fa-solid fa-handshake fs-2 py-2"></i>
+                      <h4 class="card-title py-2">Clubs and Groups</h4>
+                      <p class="card-text text-muted py-2">
+                        Our membership management software provides full
+                        automation of membership renewals and payments
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== End of Community section ==== -->
+
+        <!-- ==== Unlock section ==== -->
+        <section class="unlock d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-lg-5 d-flex align-items-center justify-content-center left2"
+              >
+                <img src="assests/image/Frame.png" alt="" class="img-fluid"/>
+              </div>
+              <div
+                class="col-lg-7 d-flex flex-column justify-content-center my-3 right2"
+              >
+                <h2>The unseen of spending three years at Pixelgrade</h2>
+                <p class="text-muted">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  sit amet justo ipsum. Sed accumsan quam vitae est varius
+                  fringilla. Pellentesque placerat vestibulum lorem sed porta.
+                  Nullam mattis tristique iaculis. Nullam pulvinar sit amet
+                  risus pretium auctor. Etiam quis massa pulvinar, aliquam quam
+                  vitae, tempus sem. Donec elementum pulvinar odio.
+                </p>
+                <div>
+                  <button class="btn hero-btn border-0">Learn More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== end of the section ==== -->
+
+        <!-- ==== Achievement section ==== -->
+        <section class="achievement d-flex align-items-center">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-lg-6 d-lg-flex flex-column justify-content-lg-center "
+              >
+                <h2 class="fs-1">
+                  Helping a local<span class="hero-span-text fs-1">
+                    business reinvent itself</span
+                  >
+                </h2>
+                <p>
+                  Where to grow your business as a photographer: site or social
+                  media?
+                </p>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="d-flex align-items-center">
+                  <i
+                    class="fa-solid fa-users fs-1 p-2 me-3"
+                    style="color: #4caf4f"
+                  ></i>
+                  <div class="achievement-count">
+                    <h3 class="me-4 pe-2 count" data-count="2245341">0</h3>
+                    <h6 class="text-muted">Members</h6>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i
+                    class="fa-solid fa-users fs-1 p-2 me-3"
+                    style="color: #4caf4f"
+                  ></i>
+                  <div class="achievement-count">
+                    <h3 class="me-4 pe-2 count" data-count="8835555">0</h3>
+                    <h6 class="text-muted">Event Bookings</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="d-flex align-items-center">
+                  <i
+                    class="fa-solid fa-handshake-simple fs-1 p-2 me-3"
+                    style="color: #4caf4f"
+                  ></i>
+                  <div class="achievement-count">
+                    <h3 class="me-4 pe-2 count" data-count="46328">0</h3>
+                    <h6 class="text-muted">Clubs</h6>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <i
+                    class="fa-solid fa-money-check fs-1 p-2 me-3"
+                    style="color: #4caf4f"
+                  ></i>
+                  <div class="achievement-count">
+                    <h3 class="me-4 pe-2 count" data-count="1926436">0</h3>
+                    <h6 class="text-muted">Payments</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== End of Achivement section ====  -->
+
+        <!-- ==== Calender section ==== -->
+        <section class="calender d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-lg-5 d-flex align-items-center justify-content-center">
+                <img src="assests/image/pana.png" alt="" class="img-fluid" />
+              </div>
+              <div
+                class="col-lg-7 d-flex flex-column justify-content-center my-3">
+                <h2>The unseen of spending three years at Pixelgrade</h2>
+                <p class="text-muted">
+                  How to design your site footer like we did Donec a eros justo.
+                  Fusce egestas tristique ultrices. Nam tempor, augue nec
+                  tincidunt molestie, massa nunc varius arcu, at scelerisque
+                  elit erat a magna. Donec quis erat at libero ultrices mollis.
+                  In hac habitasse platea dictumst. Vivamus vehicula leo dui, at
+                  porta nisi facilisis finibus. In euismod augue vitae nisi
+                  ultricies, non aliquet urna tincidunt. Integer in nisi eget
+                  nulla commodo faucibus efficitur quis massa. Praesent felis
+                  est, finibus et nisi ac, hendrerit venenatis libero. Donec
+                  consectetur faucibus ipsum id gravida. SING UP Learn More
+                </p>
+                <div>
+                  <button class="btn hero-btn border-0">Learn More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== end of Calender section ==== -->
+
+        <!-- ==== Customer section ==== -->
+        <section class="Customer d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div
+                class="col-lg-4 d-flex align-items-center justify-content-center">
+                <img
+                  src="/assests/image/Tesla.png"
+                  alt=""
+                  class="img-fluid pt-4"
+                />
+              </div>
+              <div
+                class="col-lg-8 d-flex flex-column justify-content-start my-3"
+              >
+                <p class="text-secondary fs-6">
+                  Maecenas dignissim justo eget nulla rutrum molestie. Maecenas
+                  lobortis sem dui, vel rutrum risus tincidunt ullamcorper.
+                  Proin eu enim metus. Vivamus sed libero ornare, tristique quam
+                  in, gravida enim. Nullam ut molestie arcu, at hendrerit elit.
+                  Morbi laoreet elit at ligula molestie, nec molestie mi
+                  blandit. Suspendisse cursus tellus sed augue ultrices, quis
+                  tristique nulla sodales. Suspendisse eget lorem eu turpis
+                  vestibulum pretium. Suspendisse potenti. Quisque malesuada
+                  enim sapien, vitae placerat ante feugiat eget. Quisque
+                  vulputate odio neque, eget efficitur libero condimentum id.
+                  Curabitur id nibh id sem dignissim finibus ac sit amet magna.
+                </p>
+                <div>
+                  <p class="h4" style="color: #4caf4f">Tim Smith</p>
+                  <p class="text-muted">
+                    British Dragon Boat Racing Association
+                  </p>
+                </div>
+                <div>
+                  <ul
+                    class="px-0 d-flex align-items-center justify-content-between"
+                  >
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-1.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-2.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-3.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-4.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-5.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <img
+                        src="/assests/image/client-img-6.png"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </li>
+                    <li class="list-group-item border-0">
+                      <a
+                        href="#"
+                        style="
+                          color: #4caf4f;
+                          text-decoration: none;
+                          font-size: 1rem;
+                        "
+                        >Meet all Customers<i
+                          class="fa-solid fa-arrow-right ps-3"
+                        ></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ==== end of customer section -->
+
+        <!-- ==== Community-update section =====  -->
+        <section class="community-updates py-3 d-flex align-items-center">
+          <div class="container ">
+              <div class="community-header text-center w-50 mx-auto">
+                  <h1>Caring is the new marketing</h1>
+                  <p>The Nextcent blog is the best place to read the latest membership insights, trends and
+                      more.
+                      See who's joining the community, read about how our community are increasing their
+                      membership income and lot's more</p>
+              </div>
+              <div class="row d-flex justify-content-around">
+                  <div class="col-lg-4 col-md-6">
+                      <div class="h-100 position-relative " style="margin-bottom: 100px;"><img class="w-100"
+                              src="./assests/image/image 18.png" alt="...">
+                          <div
+                              class="shadow p-2 position-absolute text-center translate-middle start-50 fw-bold bg-white border-0 rounded">
+                              <p>Creating Streamlined Safeguarding Process with OneRen</p><a href=""
+                                  class="all-customers">Readmore &#8594;</a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                      <div class="h-100 position-relative" style="margin-bottom: 100px;"><img class="w-100"
+                              src="./assests/image/image 19.png" alt="...">
+                          <div
+                              class="shadow p-2 position-absolute text-center translate-middle start-50 fw-bold  bg-white border-0 rounded">
+                              <p>What are your safeguarding responsibilities and how can you manage them?</p>
+                              <a href="" class="all-customers">Readmore &#8594;</a>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="col-lg-4 col-md-6">
+                      <div class="h-100 position-relative" style="margin-bottom: 100px;">
+                        <img class="w-100"
+                              src="./assests/image/image 20.png" alt="...">
+                          <div
+                              class="shadow p-2 position-absolute text-center translate-middle start-50 fw-bold  bg-white border-0 rounded">
+                              <p>Revamping the Membership Model with Triathion Australia</p><a href=""
+                                  class="all-customers">Readmore &#8594;</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </section>
+        <!-- ==== end of community section ==== -->
+      </div>
+      <!-- FOOTER -->
+      <footer class="footer w-100 h-100">
+        <!-- SUB-FOOTER-1 -->
+        <section class="sub-footer-1 bg-light py-4 w-100 h-100">
+          <div class="container">
+            <div class="w-50 mx-auto text-center">
+              <h1 class="px-5 py-4">
+                Pellentesque suscipit fringilla libero eu.
+              </h1>
+              <div class="btn btn-success btn-register">Get a Demo &#8594;</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section
+          class="sub-footer-2 py-4 w-100 h-100"
+          style="background-color: #263238; color: white; height: 20rem"
+        >
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-5">
+                <div class="d-flex flex-column">
+                  <div class="brand-icon d-flex align-items-center">
+                    <img
+                      src="./assests/image/Icon.png"
+                      alt="Logo"
+                      class="image-fluid"
+                    />
+                    <div class="brand-name">
+                      <span class="fw-bolder fs-3 ps-1">Nextcent</span>
+                    </div>
+                  </div>
+                  <p class="m-0 pt-4">Copyright &#169; 2020 Nextcent ltd.</p>
+                  <p class="m-0 pb-4">All rights reserved</p>
+
+                  <ul class="list-unstyled d-flex align-items-center" >
+                    <li class="list-group-item p-2 border mx-2" style="background-color: transparent; border-radius:50%;">
+                      <a href="#">
+                        <i class="fa-brands fa-instagram fs-5 d-flex align-items-center justify-content-center"></i>
+                      </a>
+                    </li>
+                    <li class="list-group-item p-2 border mx-2" style="background-color: transparent; border-radius:50%;">
+                      <a href="#">
+                        <i class="fa-solid fa-basketball fs-5 d-flex align-items-center justify-content-center"></i>
+                      </a>
+                    </li>
+                    <li class="list-group-item p-2 border mx-2" style="background-color: transparent; border-radius:50%;">
+                      <a href="#">
+                        <i class="fa-brands fa-twitter fs-5 d-flex align-items-center justify-content-center"></i>
+                      </a>
+                    </li>
+                    <li class="list-group-item p-2 border mx-2" style="background-color: transparent; border-radius:50%;">
+                      <a href="#">
+                        <i class="fa-brands fa-youtube fs-6 d-flex align-items-center justify-content-center"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="row">
+                      <!-- ==== company ==== -->
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="footer-section-1 d-flex flex-column h-100">
+                          <ul class="list-unstyled">
+                            <li><h5>Company</h5></li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >AboutUs</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Blog</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Contact Us</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Pricing</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Testimonials</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <!-- ==== end of company -->
+
+                      <!-- ==== Support ==== -->
+                      <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="footer-section-1 d-flex flex-column h-100">
+                          <ul class="list-unstyled">
+                            <li><h5>Support</h5></li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Help Center</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Terms of Services</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Legal</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Privacy Policy</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-decoration-none text-white-50"
+                                href="#"
+                                >Status</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <!-- ==== end of support ==== -->
+                    </div>
+                  </div>
+                  <!-- ==== INFO ==== -->
+                  <div class="col-lg-6">
+                    <div class="d-flex flex-column">
+                      <h3>Stay up to date</h3>
+                      <form
+                        class="d-flex align-items-center position-relative w-auto pt-2"
+                      >
+                        <input
+                          type="email"
+                          class="form-control"
+                          id="exampleInputEmail1"
+                          placeholder="Your email address"
+                          aria-describedby="emailHelp"
+                        />
+                        <a
+                          class="ps-3 text-white position-absolute"
+                          style="cursor: pointer; right: 10px"
+                        >
+                          <i class="fa-solid fa-paper-plane"></i>
+                        </a>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- ==== end of info ==== -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+    <!-- END OF THE FOOTER -->
+    <script src="assests/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    //   AOS.init();
+
+      const myNum = document.querySelectorAll(".count");
+      // console.log(myNum.innerText)
+      let speed = 200;
+
+      myNum.forEach((myCount) => {
+        let target_count = myCount.dataset.count;
+        let init_count = +myCount.innerText;
+        // console.log(target_count)
+
+        let new_increment_num = Math.floor(target_count / speed);
+
+        const updateNumber = () => {
+          init_count += new_increment_num;
+          myCount.innerText = init_count;
+
+          if (init_count < target_count) {
+            setTimeout(() => {
+              updateNumber();
+            }, 5);
+          }
+        };
+
+        updateNumber();
+      });
+
+      // for the slider
+      $(document).ready(function() {
+        $('.logo-carousel').slick({
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: true,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 4
+            }
+          }, {
+            breakpoint: 520,
+            settings: {
+              slidesToShow: 2
+            }
+          }]
+        });
+      });
+    </script>
+  </body>
+</html>
