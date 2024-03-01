@@ -10,13 +10,16 @@ label{
     font-weight: bold;
 }
 .modal-content{
+    width: 100%;
+}
+.modal-body{
     background-color: #d6ccc2;
     
 }
 
 #addNewStudent{
     background-color: #84a59d;
-    
+    color: white;
 }
 #submit,#edit,#edu-edit,#edu-delete{
     background-color: #669bbc;
@@ -26,14 +29,6 @@ label{
     outline: none !important;
     box-shadow: none;
 }
-/* 
-input:invalid{
-    border: 1px red solid;
-}
-
-textarea:invalid {
-    border: 1px solid red;
-} */
 
 .dataTables_filter{
     display : none

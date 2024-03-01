@@ -227,6 +227,18 @@ function updateStudent() {
     students[index].address = address
     students[index].graduationYear = graduationYear
 
+    //For update the education details
+    let education = students[index].education
+    let educationRows = document.querySelectorAll('#tbody tr')
+    for(let i in education){
+        education[i].degree = educationRows[i].querySelector('input[name="degree"]').value
+        education[i].schoolCollage =educationRows[i].querySelector('input[name="schoolCollage"]').value
+        education[i].startDate = educationRows[i].querySelector('input[name="startDate"]').value
+        education[i].endDate = educationRows[i].querySelector('input[name="endDate"]').value 
+        education[i].percentage = educationRows[i].querySelector('input[name="percentage"]').value
+        education[i].backlog = educationRows[i].querySelector('input[name="backlog"]').value
+    }
+
     // Call function to display student data
     displayStudents()
     currentStudentId = null
