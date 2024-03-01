@@ -284,10 +284,26 @@ $(document).ready(function () {
 
     function format(id){
         let index = students.findIndex(student => student.id === id)// ETable.append(thead)
+        console.log(index)
         let education = students[index].education
 
-        console.log(education)
-        return(index)
+        let table2 = $(`<table class="educationTable table table-bordered border-dark text-center table-striped">`);
+        table2.append(`<thead class="table-info">
+        <th class="text-center">Degree/Board</th>
+        <th class="text-center">School/College</th>
+        <th class="text-center">Start Date</th>
+        <th class="text-center">Passout Year</th>
+        <th class="text-center">Percentage</th>
+        <th class="text-center">Backlog</th>
+        </thead>
+        <tbody class="educationDataTableBody"></tbody>`);
+    
+        for (let key in education) {
+            let row = `<tr><td>` + education[key].degree + `</td><td>` + education[key].schoolCollage + `</td><td>` + education[key].startDate + `</td><td>` + education[key].endDate + `</td><td>` + education[key].percentage + `</td><td>` + education[key].backlog + `</td></tr>`;
+            table2.append(row);
+        };
+        return (table2)
+    
     }
     function deleteStudent(id) {
         let index = students.findIndex(student => student.id === id)
