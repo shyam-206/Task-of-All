@@ -10,9 +10,7 @@ const formHTML = form.innerHTML
 
 document.getElementById('addNewStudent').addEventListener('click',function(){
     document.getElementById('modal-title').innerText = 'New Studnet Detail'
-    form.innerHTML = formHTML
-
-
+    form.innerHTML = formHTML   
 })
 
 form.addEventListener('submit', function(e) {
@@ -259,6 +257,7 @@ function deleteStudent(id) {
 
 function editStudent(id) {
     console.log(id)
+    form.innerHTML = formHTML;
     // Find the student object in the array using the id
     let student = students.find(student => student.id === id)
     document.getElementById('submit').style.display = 'block'
@@ -275,8 +274,15 @@ function editStudent(id) {
     console.log(students[id-1].education)
 
     let education = students[id-1].education
+    // debugger
+
+    for (let index = 0; index < education.length-2; index++) {
+        addNewEduRow();
+    }
     let educationRows = document.querySelectorAll('#tbody tr')
+    debugger
     for(let i in education){
+        // console.log(education[i].degree)
         educationRows[i].querySelector('input[name="degree"]').value = education[i].degree
         educationRows[i].querySelector('input[name="schoolCollage"]').value = education[i].schoolCollage
         educationRows[i].querySelector('input[name="startDate"]').value = education[i].startDate
@@ -289,8 +295,6 @@ function editStudent(id) {
     // Set currentStudentId to the id of the selected student
     currentStudentId = id
 
-    
-    
 }
 
 //add new education row 

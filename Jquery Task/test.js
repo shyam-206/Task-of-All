@@ -3,7 +3,9 @@ $(document).ready(function () {
     let currentStudentId = null
 
     let students = [] // Array to store student objects
-    let table = $('#table1').DataTable()
+    let table = $('#table1').DataTable({
+        'responsive' : true,
+    })
     const form = $('#myForm')
     const formHTML = form.html()
 
@@ -11,7 +13,6 @@ $(document).ready(function () {
         $('#modal-title').text('New Student Detail')
         form.html(formHTML)
     })
-
     form.submit(function (e) {
         e.preventDefault()
         let valid = true
@@ -35,7 +36,6 @@ $(document).ready(function () {
 
         }
     })
-
     function firstnameValid() {
         let firstname = $('#firstname')
         let firstNameError = $('#firstNameError')
@@ -52,7 +52,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function lastnameValid() {
         let lastname = $('#lastname')
         let lastNameError = $('#lastNameError')
@@ -69,7 +68,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function dobValid() {
         let dateofbirth = $('#dateofbirth')
         let dateOfBirthError = $('#dateOfBirthError')
@@ -91,7 +89,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function emailValid() {
         let email = $('#email')
         let emailError = $('#emailError')
@@ -109,7 +106,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function addressValid() {
         let address = $('#address')
         let addressError = $('#addressError')
@@ -126,7 +122,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function gyearvalid() {
         let gyear = $('#gyear')
         let graduationYearError = $('#graduationYearError')
@@ -144,7 +139,6 @@ $(document).ready(function () {
             return true
         }
     }
-
     function addStudent() {
         let firstName = $('#firstname').val()
         let lastName = $('#lastname').val()
@@ -189,13 +183,12 @@ $(document).ready(function () {
 
         $('#myForm').trigger('reset')
     }
-
-
     function displayStudents() {
 
         table.clear().draw()
         students.forEach(student => {
             let row = [
+                `<button type="button" class="btn btn-light border-0 rounded-circle" id="edu-show-btn"}  data-student-id="${student.id}" ><i class="fa-solid fa-angle-down"></i></button>`,
                 student.firstName,
                 student.lastName,
                 student.dateOfBirth,
@@ -212,8 +205,6 @@ $(document).ready(function () {
         })
 
     }
-
-
     function updateStudent() {
         let firstName = $('#firstname').val()
         let lastName = $('#lastname').val()
@@ -261,28 +252,42 @@ $(document).ready(function () {
         
         $('#submit').text('Save')
     }
-
     $(document).on('click', '.edit-btn', function () {
         let studentId = $(this).data('student-id')
         editStudent(studentId)
     })
-
     $(document).on('click', '.delete-btn', function () {
         let studentId = $(this).data('student-id')
         deleteStudent(studentId)
     })
-
     $(document).on('click', '#addNewRow', function () {
         addNewEduRow()
     })
-
     $(document).on('click', '#edu-delete', function () {
         $(this).closest('tr').remove()
     })
+    table.on('click','#edu-show-btn',function (){
+        let tr = $(this).closest('tr')
+        let row = table.row(tr)
+        let index = $(this).data('student-id')
 
 
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+        }
+        else {
+            // Open this row
+            row.child(format(index)).show();
+        }
+    })
 
+    function format(id){
+        let index = students.findIndex(student => student.id === id)// ETable.append(thead)
+        let education = students[index].education
 
+        
+    }
     function deleteStudent(id) {
         let index = students.findIndex(student => student.id === id)
         students.splice(index, 1)
@@ -290,6 +295,7 @@ $(document).ready(function () {
     }
     function editStudent(id) {
         // debugger
+        form.html(formHTML)
         let student = students.find(student => student.id === id)
         $('#submit').css('display', 'block')
         $('#submit').text('Update')
@@ -302,7 +308,14 @@ $(document).ready(function () {
         $('#address').val(student.address)
         $('#gyear').val(student.graduationYear)
 
+
+        
         let education = students[id - 1].education
+
+        for (let index = 0; index < education.length-2; index++) {
+            addNewEduRow();
+        }
+
         $('#tbody tr').each(function (i) {
             $(this).find('input[name="degree"]').val(education[i].degree)
             $(this).find('input[name="schoolCollage"]').val(education[i].schoolCollage)
@@ -314,7 +327,6 @@ $(document).ready(function () {
 
         currentStudentId = id
     }
-
     function addNewEduRow() {
         let tbody = $('#tbody')
         let tr = $('<tr></tr>')
