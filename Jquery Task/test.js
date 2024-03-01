@@ -286,7 +286,8 @@ $(document).ready(function () {
         let index = students.findIndex(student => student.id === id)// ETable.append(thead)
         let education = students[index].education
 
-        
+        console.log(education)
+        return(index)
     }
     function deleteStudent(id) {
         let index = students.findIndex(student => student.id === id)
