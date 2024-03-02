@@ -139,6 +139,10 @@ $(document).ready(function () {
             return true
         }
     }
+
+    function eduValid(){
+        
+    }
     function addStudent() {
         let firstName = $('#firstname').val()
         let lastName = $('#lastname').val()
@@ -257,37 +261,12 @@ $(document).ready(function () {
                 });
             }
         }
-
-
-        // for(let i in education){
-        //     // debugger
-        //     education[i].degree = educationRows[i].querySelector('input[name="degree"]').value
-        //     education[i].schoolCollage =educationRows[i].querySelector('input[name="schoolCollage"]').value
-        //     education[i].startDate = educationRows[i].querySelector('input[name="startDate"]').value
-        //     education[i].endDate = educationRows[i].querySelector('input[name="endDate"]').value 
-        //     education[i].percentage = educationRows[i].querySelector('input[name="percentage"]').value
-        //     education[i].backlog = educationRows[i].querySelector('input[name="backlog"]').value
-        // }
+            
+        displayStudents() // for table display
+        currentStudentId = null //first null 
+        // console.log(students)
         
-        //converted the code into the jquery
-        // let education = students[index].education
-        // $('#tbody tr').each(function(i) {
-            //     debugger
-            //     education[i].degree = $(this).find('input[name="degree"]').val()
-            //     education[i].schoolCollage = $(this).find('input[name="schoolCollage"]').val()
-            //     education[i].startDate = $(this).find('input[name="startDate"]').val()
-            //     education[i].endDate = $(this).find('input[name="endDate"]').val()
-            //     education[i].percentage = $(this).find('input[name="percentage"]').val()
-            //     education[i].backlog = $(this).find('input[name="backlog"]').val()
-            // })
-            // console.log(education)
-
-            
-            displayStudents() // for table display
-            currentStudentId = null //first null 
-            // console.log(students)
-            
-            $('#submit').text('Save')
+        $('#submit').text('Save')
     }
 
 
@@ -401,14 +380,6 @@ $(document).ready(function () {
 
         $('#tbody').empty();
 
-        // $('#tbody tr').each(function (i) {
-        //     $(this).find('input[name="degree"]').val(education[i].degree)
-        //     $(this).find('input[name="schoolCollage"]').val(education[i].schoolCollage)
-        //     $(this).find('input[name="startDate"]').val(education[i].startDate)
-        //     $(this).find('input[name="endDate"]').val(education[i].endDate)
-        //     $(this).find('input[name="percentage"]').val(education[i].percentage)
-        //     $(this).find('input[name="backlog"]').val(education[i].backlog)
-        // })
 
         for (let i = 0; i < education.length; i++) {
             addNewEduRow();
@@ -418,8 +389,14 @@ $(document).ready(function () {
             $('#tbody tr:last-child').find('input[name="endDate"]').val(education[i].endDate);
             $('#tbody tr:last-child').find('input[name="percentage"]').val(education[i].percentage);
             $('#tbody tr:last-child').find('input[name="backlog"]').val(education[i].backlog);
+
+            if(i==0 || i==1){
+                $('#tbody tr:last-child').find('#edu-delete').prop('disabled', true);
+            }
         }
 
+        
+        // $('#tbody tr:second-child').find('#edu-delete').prop('disabled', true);
 
         currentStudentId = id
         displayStudents()
@@ -428,12 +405,12 @@ $(document).ready(function () {
         let tbody = $('#tbody')
         let tr = $('<tr></tr>')
 
-        tr.html(`<td><input type="text" name="degree" class="form-control" id="degree"></td>
-        <td><input type="text" name="schoolCollage" class="form-control"></td>
-        <td><input type="month" name="startDate" class="form-control"></td>
-        <td><input type="month" name="endDate" class="form-control"></td>
-        <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100"></td>
-        <td><input type="number" name="backlog" min="0" class="form-control"></td>
+        tr.html(`<td><input type="text" name="degree" class="form-control" id="degree" required></td>
+        <td><input type="text" name="schoolCollage" class="form-control" required></td>
+        <td><input type="month" name="startDate" class="form-control" required></td>
+        <td><input type="month" name="endDate" class="form-control" required></td>
+        <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100" required></td>
+        <td><input type="number" name="backlog" min="0" class="form-control" required></td>
         <td class="btn-div">
             <button type="button" class="border-0 btn mx-1" id="edu-delete"><i class="fa-solid fa-trash"></i></button>
         </td>`)
