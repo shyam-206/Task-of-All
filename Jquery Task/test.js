@@ -214,7 +214,6 @@ $(document).ready(function () {
         let graduationYear = $('#gyear').val()
 
         let index = students.findIndex(student => student.id === currentStudentId)
-        currentStudentId = null //first null 
         // debugger
         students[index].firstName = firstName
         students[index].lastName = lastName
@@ -222,12 +221,46 @@ $(document).ready(function () {
         students[index].email = email
         students[index].address = address
         students[index].graduationYear = graduationYear
-
+        
         //----Update Education data
         //for learning used js
-        // let education = students[index].education
-        // let educationRows = document.querySelectorAll('#tbody tr')
+        
+
+        let education = students[index].education
+        let educationRows = document.querySelectorAll('#tbody tr')
+
+        for (let i = 0; i < educationRows.length; i++) {
+            let degree = $(educationRows[i]).find('input[name="degree"]').val();
+            let schoolCollage = $(educationRows[i]).find('input[name="schoolCollage"]').val();
+            let startDate = $(educationRows[i]).find('input[name="startDate"]').val();
+            let endDate = $(educationRows[i]).find('input[name="endDate"]').val();
+            let percentage = $(educationRows[i]).find('input[name="percentage"]').val();
+            let backlog = $(educationRows[i]).find('input[name="backlog"]').val();
+    
+            if (i < education.length) {
+                // Update existing education data
+                education[i].degree = degree;
+                education[i].schoolCollage = schoolCollage;
+                education[i].startDate = startDate;
+                education[i].endDate = endDate;
+                education[i].percentage = percentage;
+                education[i].backlog = backlog;
+            } else {
+                // Add new education data
+                education.push({
+                    degree: degree,
+                    schoolCollage: schoolCollage,
+                    startDate: startDate,
+                    endDate: endDate,
+                    percentage: percentage,
+                    backlog: backlog
+                });
+            }
+        }
+
+
         // for(let i in education){
+        //     // debugger
         //     education[i].degree = educationRows[i].querySelector('input[name="degree"]').value
         //     education[i].schoolCollage =educationRows[i].querySelector('input[name="schoolCollage"]').value
         //     education[i].startDate = educationRows[i].querySelector('input[name="startDate"]').value
@@ -235,23 +268,29 @@ $(document).ready(function () {
         //     education[i].percentage = educationRows[i].querySelector('input[name="percentage"]').value
         //     education[i].backlog = educationRows[i].querySelector('input[name="backlog"]').value
         // }
-
-        //converted the code into the jquery
-        let education = students[index].education
-        $('#tbody tr').each(function(i) {
-            education[i].degree = $(this).find('input[name="degree"]').val()
-            education[i].schoolCollage = $(this).find('input[name="schoolCollage"]').val()
-            education[i].startDate = $(this).find('input[name="startDate"]').val()
-            education[i].endDate = $(this).find('input[name="endDate"]').val()
-            education[i].percentage = $(this).find('input[name="percentage"]').val()
-            education[i].backlog = $(this).find('input[name="backlog"]').val()
-        })
-        console.log(education)
-        displayStudents()
-        // console.log(students)
         
-        $('#submit').text('Save')
+        //converted the code into the jquery
+        // let education = students[index].education
+        // $('#tbody tr').each(function(i) {
+            //     debugger
+            //     education[i].degree = $(this).find('input[name="degree"]').val()
+            //     education[i].schoolCollage = $(this).find('input[name="schoolCollage"]').val()
+            //     education[i].startDate = $(this).find('input[name="startDate"]').val()
+            //     education[i].endDate = $(this).find('input[name="endDate"]').val()
+            //     education[i].percentage = $(this).find('input[name="percentage"]').val()
+            //     education[i].backlog = $(this).find('input[name="backlog"]').val()
+            // })
+            // console.log(education)
+
+            
+            displayStudents() // for table display
+            currentStudentId = null //first null 
+            // console.log(students)
+            
+            $('#submit').text('Save')
     }
+
+
     $(document).on('click', '.edit-btn', function () {
         let studentId = $(this).data('student-id')
         editStudent(studentId)
@@ -264,8 +303,35 @@ $(document).ready(function () {
         addNewEduRow()
     })
     $(document).on('click', '#edu-delete', function () {
-        $(this).closest('tr').remove()
+        // $(this).closest('tr').remove()
+        deleteEducationData($(this).closest('tr'));
     })
+
+
+    function deleteEducationRow(row) {
+        // Remove the row from the table
+        $(row).closest('tr').remove();
+    }
+
+
+    function deleteEducationData(row) {
+        let index = $(row).closest('tr').index(); // Get the index of the row
+        let studentId = currentStudentId; // Assuming you have a variable currentStudentId set elsewhere
+    
+        if (studentId !== null && index !== -1) {
+            let studentIndex = students.findIndex(student => student.id === studentId);
+    
+            // Remove the education data at the specified index
+            if (studentIndex !== -1 && index < students[studentIndex].education.length) {
+                students[studentIndex].education.splice(index, 1);
+            }
+    
+            // Now remove the row from the UI
+            deleteEducationRow(row);
+        }
+    }
+
+
     table.on('click','#edu-show-btn',function (){
         let tr = $(this).closest('tr')
         let row = table.row(tr)
@@ -311,9 +377,9 @@ $(document).ready(function () {
         displayStudents()
     }
     function editStudent(id) {
-        // debugger
-        form.html(formHTML)
-        let student = students.find(student => student.id === id)
+        // form.html(formHTML)
+        let index = students.findIndex(student => student.id === id)
+        let student = students[index]
         $('#submit').css('display', 'block')
         $('#submit').text('Update')
         // $('#modal-title').text('Update Student Detail')
@@ -329,20 +395,34 @@ $(document).ready(function () {
         
         let education = students[id - 1].education
 
-        for (let index = 0; index < education.length-2; index++) {
+        // for (let i = 0; i < education.length-2; i++) {
+        //     addNewEduRow();
+        // }
+
+        $('#tbody').empty();
+
+        // $('#tbody tr').each(function (i) {
+        //     $(this).find('input[name="degree"]').val(education[i].degree)
+        //     $(this).find('input[name="schoolCollage"]').val(education[i].schoolCollage)
+        //     $(this).find('input[name="startDate"]').val(education[i].startDate)
+        //     $(this).find('input[name="endDate"]').val(education[i].endDate)
+        //     $(this).find('input[name="percentage"]').val(education[i].percentage)
+        //     $(this).find('input[name="backlog"]').val(education[i].backlog)
+        // })
+
+        for (let i = 0; i < education.length; i++) {
             addNewEduRow();
+            $('#tbody tr:last-child').find('input[name="degree"]').val(education[i].degree);
+            $('#tbody tr:last-child').find('input[name="schoolCollage"]').val(education[i].schoolCollage);
+            $('#tbody tr:last-child').find('input[name="startDate"]').val(education[i].startDate);
+            $('#tbody tr:last-child').find('input[name="endDate"]').val(education[i].endDate);
+            $('#tbody tr:last-child').find('input[name="percentage"]').val(education[i].percentage);
+            $('#tbody tr:last-child').find('input[name="backlog"]').val(education[i].backlog);
         }
 
-        $('#tbody tr').each(function (i) {
-            $(this).find('input[name="degree"]').val(education[i].degree)
-            $(this).find('input[name="schoolCollage"]').val(education[i].schoolCollage)
-            $(this).find('input[name="startDate"]').val(education[i].startDate)
-            $(this).find('input[name="endDate"]').val(education[i].endDate)
-            $(this).find('input[name="percentage"]').val(education[i].percentage)
-            $(this).find('input[name="backlog"]').val(education[i].backlog)
-        })
 
         currentStudentId = id
+        displayStudents()
     }
     function addNewEduRow() {
         let tbody = $('#tbody')
