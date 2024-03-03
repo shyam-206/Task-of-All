@@ -25,15 +25,12 @@ $(document).ready(function () {
         valid = gyearvalid() && valid
 
         if (valid) {
-            if (currentStudentId) {
+            if (currentStudentId) { //CurrentStudentId is not null then we update the student.                
                 updateStudent()
             } else {
                 addStudent()
             }
-
             $('#submit').css('display', 'none')
-            
-
         }
     })
     function firstnameValid() {
@@ -141,8 +138,10 @@ $(document).ready(function () {
     }
 
     function eduValid(){
-        
+
     }
+
+    //Add new data and and then push into the student data.
     function addStudent() {
         let firstName = $('#firstname').val()
         let lastName = $('#lastname').val()
@@ -217,8 +216,8 @@ $(document).ready(function () {
         let address = $('#address').val()
         let graduationYear = $('#gyear').val()
 
+        //Upadate the student data in the array
         let index = students.findIndex(student => student.id === currentStudentId)
-        // debugger
         students[index].firstName = firstName
         students[index].lastName = lastName
         students[index].dateOfBirth = dateOfBirth
@@ -227,9 +226,6 @@ $(document).ready(function () {
         students[index].graduationYear = graduationYear
         
         //----Update Education data
-        //for learning used js
-        
-
         let education = students[index].education
         let educationRows = document.querySelectorAll('#tbody tr')
 
@@ -269,30 +265,36 @@ $(document).ready(function () {
         $('#submit').text('Save')
     }
 
-
+    //Onclick edit button edit button the all thing work
     $(document).on('click', '.edit-btn', function () {
         let studentId = $(this).data('student-id')
         editStudent(studentId)
     })
+
+    //Remove the student from the table and students array
     $(document).on('click', '.delete-btn', function () {
         let studentId = $(this).data('student-id')
         deleteStudent(studentId)
     })
+
+    //OnClick education adding new row
     $(document).on('click', '#addNewRow', function () {
         addNewEduRow()
     })
+
+    //Onclick then deleteEducation Data find after that remove the education row
     $(document).on('click', '#edu-delete', function () {
-        // $(this).closest('tr').remove()
+
         deleteEducationData($(this).closest('tr'));
     })
 
 
     function deleteEducationRow(row) {
-        // Remove the row from the table
+        // Remove the education row from the table
         $(row).closest('tr').remove();
     }
 
-
+    //Delete the edcuaction data from array 
     function deleteEducationData(row) {
         let index = $(row).closest('tr').index(); // Get the index of the row
         let studentId = currentStudentId; // Assuming you have a variable currentStudentId set elsewhere
@@ -304,19 +306,18 @@ $(document).ready(function () {
             if (studentIndex !== -1 && index < students[studentIndex].education.length) {
                 students[studentIndex].education.splice(index, 1);
             }
-    
-            // Now remove the row from the UI
-            deleteEducationRow(row);
+            
         }
+        
+        // Now remove the row from the table
+        deleteEducationRow(row);
     }
 
-
+    //On click the table of the first edu-show-btn then they show the details with it
     table.on('click','#edu-show-btn',function (){
         let tr = $(this).closest('tr')
         let row = table.row(tr)
         let index = $(this).data('student-id')
-
-
         if (row.child.isShown()) {
             // This row is already open - close it
             row.child.hide();
@@ -327,6 +328,7 @@ $(document).ready(function () {
         }
     })
 
+    //Function for the showing working of it
     function format(id){
         let index = students.findIndex(student => student.id === id)// ETable.append(thead)
         console.log(index)
@@ -350,18 +352,20 @@ $(document).ready(function () {
         return (table2)
     
     }
+
+    //delete Student data from the students array
     function deleteStudent(id) {
         let index = students.findIndex(student => student.id === id)
         students.splice(index, 1)
         displayStudents()
     }
+
+    //When user click the edit btn then this function called and the according to change the table data change
     function editStudent(id) {
-        // form.html(formHTML)
         let index = students.findIndex(student => student.id === id)
         let student = students[index]
         $('#submit').css('display', 'block')
         $('#submit').text('Update')
-        // $('#modal-title').text('Update Student Detail')
 
         $('#firstname').val(student.firstName)
         $('#lastname').val(student.lastName)
@@ -370,17 +374,10 @@ $(document).ready(function () {
         $('#address').val(student.address)
         $('#gyear').val(student.graduationYear)
 
-
-        
+        //Fetch data from that particular student
         let education = students[id - 1].education
-
-        // for (let i = 0; i < education.length-2; i++) {
-        //     addNewEduRow();
-        // }
-
+        //first empty table then add all row and then show the data value according to education array
         $('#tbody').empty();
-
-
         for (let i = 0; i < education.length; i++) {
             addNewEduRow();
             $('#tbody tr:last-child').find('input[name="degree"]').val(education[i].degree);
@@ -390,17 +387,17 @@ $(document).ready(function () {
             $('#tbody tr:last-child').find('input[name="percentage"]').val(education[i].percentage);
             $('#tbody tr:last-child').find('input[name="backlog"]').val(education[i].backlog);
 
+
+            //for the disable first two row
             if(i==0 || i==1){
                 $('#tbody tr:last-child').find('#edu-delete').prop('disabled', true);
             }
         }
-
-        
-        // $('#tbody tr:second-child').find('#edu-delete').prop('disabled', true);
-
         currentStudentId = id
         displayStudents()
     }
+
+    //add new education row
     function addNewEduRow() {
         let tbody = $('#tbody')
         let tr = $('<tr></tr>')
