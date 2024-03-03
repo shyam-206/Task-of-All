@@ -3,8 +3,6 @@ let nextId = 0 // Initial ID counter
 let currentStudentId = null
 
 let students = [] // Array to store student objects
-
-
 const form = document.getElementById('myForm')
 const formHTML = form.innerHTML
 
@@ -33,9 +31,7 @@ form.addEventListener('submit', function(e) {
         } else {
             // Otherwise, we are adding a new student
             addStudent()
-
         }
-
         document.getElementById('submit').style.display = 'none'
     }
 })
@@ -56,7 +52,6 @@ function firstnameValid(){
         firstNameError.textContent = ''
         return true
     }
-
 }
 
 function lastnameValid(){
@@ -228,13 +223,33 @@ function updateStudent() {
     //For update the education details
     let education = students[index].education
     let educationRows = document.querySelectorAll('#tbody tr')
-    for(let i in education){
-        education[i].degree = educationRows[i].querySelector('input[name="degree"]').value
-        education[i].schoolCollage =educationRows[i].querySelector('input[name="schoolCollage"]').value
-        education[i].startDate = educationRows[i].querySelector('input[name="startDate"]').value
-        education[i].endDate = educationRows[i].querySelector('input[name="endDate"]').value 
-        education[i].percentage = educationRows[i].querySelector('input[name="percentage"]').value
-        education[i].backlog = educationRows[i].querySelector('input[name="backlog"]').value
+    for (let i = 0; i < educationRows.length; i++) {
+        let degree = educationRows[i].querySelector('input[name="degree"]').value;
+        let schoolCollage = educationRows[i].querySelector('input[name="schoolCollage"]').value;
+        let startDate = educationRows[i].querySelector('input[name="startDate"]').value;
+        let endDate = educationRows[i].querySelector('input[name="endDate"]').value;
+        let percentage = educationRows[i].querySelector('input[name="percentage"]').value;
+        let backlog = educationRows[i].querySelector('input[name="backlog"]').value;
+    
+        if (i < education.length) {
+            // Update existing education data
+            education[i].degree = degree;
+            education[i].schoolCollage = schoolCollage;
+            education[i].startDate = startDate;
+            education[i].endDate = endDate;
+            education[i].percentage = percentage;
+            education[i].backlog = backlog;
+        } else {
+            // Add new education data
+            education.push({
+                degree: degree,
+                schoolCollage: schoolCollage,
+                startDate: startDate,
+                endDate: endDate,
+                percentage: percentage,
+                backlog: backlog
+            });
+        }
     }
 
     // Call function to display student data
@@ -247,17 +262,14 @@ function updateStudent() {
 function deleteStudent(id) {
     // Find the index of the student object in the array using the id
     let index = students.findIndex(student => student.id === id)
-
     // Remove the student object from the array
     students.splice(index, 1)
-
     // Call function to display student data
     displayStudents()
 }
 
 function editStudent(id) {
     console.log(id)
-    form.innerHTML = formHTML;
     // Find the student object in the array using the id
     let student = students.find(student => student.id === id)
     document.getElementById('submit').style.display = 'block'
@@ -271,27 +283,31 @@ function editStudent(id) {
     document.getElementById('address').value = student.address
     document.getElementById('gyear').value = student.graduationYear
 
-    console.log(students[id-1].education)
+    // console.log(students[id-1].education)
 
     let education = students[id-1].education
-    // debugger
 
-    for (let index = 0; index < education.length-2; index++) {
+    var tbody = document.getElementById('tbody');
+    tbody.innerHTML = '';
+
+    // add new row to show the data
+    for (var i = 0; i < education.length; i++) {
         addNewEduRow();
+        var lastChildInputs = tbody.lastElementChild.querySelectorAll('input[name]');
+        
+        for (var j = 0; j < lastChildInputs.length; j++) {
+            var input = lastChildInputs[j];
+            var fieldName = input.getAttribute('name');
+            
+            if (fieldName in education[i]) {
+                input.value = education[i][fieldName];
+            }
+        }
+        // Disable delete button for the first two rows
+        if (i === 0 || i === 1) {
+            tbody.lastElementChild.querySelector('#edu-delete').disabled = true;
+        }
     }
-    let educationRows = document.querySelectorAll('#tbody tr')
-    debugger
-    for(let i in education){
-        // console.log(education[i].degree)
-        educationRows[i].querySelector('input[name="degree"]').value = education[i].degree
-        educationRows[i].querySelector('input[name="schoolCollage"]').value = education[i].schoolCollage
-        educationRows[i].querySelector('input[name="startDate"]').value = education[i].startDate
-        educationRows[i].querySelector('input[name="endDate"]').value = education[i].endDate
-        educationRows[i].querySelector('input[name="percentage"]').value = education[i].percentage
-        educationRows[i].querySelector('input[name="backlog"]').value = education[i].backlog
-
-    }
-
     // Set currentStudentId to the id of the selected student
     currentStudentId = id
 
@@ -309,11 +325,35 @@ function addNewEduRow(){
     <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100"></td>
     <td><input type="number" name="backlog" min="0" class="form-control"></td>
     <td class="btn-div">
-        <button type="button" class="border-0 btn mx-1" id="edu-delete" onclick="deleteEduRow(this)"><i class="fa-solid fa-trash"></i></button>
+        <button type="button" class="border-0 btn mx-1" id="edu-delete" onclick="deleteEducationData(this)"><i class="fa-solid fa-trash"></i></button>
     </td>`
 
     tbody.appendChild(tr)
 }
+
+function deleteEducationData(row) {
+    var index = row.closest('tr').rowIndex; // Get the index of the row
+    var studentId = currentStudentId; // Assuming you have a variable currentStudentId set elsewhere
+
+    if (studentId !== null && index !== -1) {
+        var studentIndex = students.findIndex(function(student) {
+            return student.id === studentId;
+        });
+
+        // Remove the education data at the specified index
+        if (studentIndex !== -1 && index < students[studentIndex].education.length) {
+            students[studentIndex].education.splice(index, 1);
+        }
+    }
+    // Now remove the row from the table
+    deleteEducationRow(row);
+}
+
+function deleteEducationRow(row) {
+    // Remove the education row from the table
+    row.closest('tr').remove();
+}
+
 
 function deleteEduRow(This){
     This.closest('tr').remove()

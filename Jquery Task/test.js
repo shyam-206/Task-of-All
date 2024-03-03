@@ -308,7 +308,6 @@ $(document).ready(function () {
             }
             
         }
-        
         // Now remove the row from the table
         deleteEducationRow(row);
     }
