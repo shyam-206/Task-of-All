@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
     let nextId = 0 // Initial ID counter
     let currentStudentId = null
 
@@ -137,10 +137,6 @@ $(document).ready(function () {
         }
     }
 
-    function eduValid(){
-        
-    }
-
     //Add new data and and then push into the student data.
     function addStudent() {
         let firstName = $('#firstname').val()
@@ -190,8 +186,7 @@ $(document).ready(function () {
 
         table.clear().draw()
         students.forEach(student => {
-            let row = [
-                `<button type="button" class="btn btn-light border-0 rounded-circle" id="edu-show-btn"}  data-student-id="${student.id}" ><i class="fa-solid fa-angle-down"></i></button>`,
+            let row = [`<button type="button" class="btn btn-light border-0 rounded-circle" id="edu-show-btn"}  data-student-id="${student.id}" ><i class="fa-solid fa-angle-down"></i></button>`,
                 student.firstName,
                 student.lastName,
                 student.dateOfBirth,
@@ -201,9 +196,7 @@ $(document).ready(function () {
                 `<div class="d-flex">
                             <button class="btn btn-primary btn-sm edit-btn mx-2" data-student-id="${student.id}" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
                             <button class="btn btn-danger btn-sm delete-btn mx-2" data-student-id="${student.id}">Delete</button>
-                </div>`
-
-            ]
+                </div>`]
             table.row.add(row).draw()
         })
 
@@ -229,22 +222,22 @@ $(document).ready(function () {
         let education = students[index].education
         let educationRows = document.querySelectorAll('#tbody tr')
 
-        for (let i = 0 ; i < educationRows.length ; i++) {
-            let degree = $(educationRows[i]).find('input[name="degree"]').val()
-            let schoolCollage = $(educationRows[i]).find('input[name="schoolCollage"]').val()
-            let startDate = $(educationRows[i]).find('input[name="startDate"]').val()
-            let endDate = $(educationRows[i]).find('input[name="endDate"]').val()
-            let percentage = $(educationRows[i]).find('input[name="percentage"]').val()
-            let backlog = $(educationRows[i]).find('input[name="backlog"]').val()
+        for (let i = 0; i < educationRows.length; i++) {
+            let degree = $(educationRows[i]).find('input[name="degree"]').val();
+            let schoolCollage = $(educationRows[i]).find('input[name="schoolCollage"]').val();
+            let startDate = $(educationRows[i]).find('input[name="startDate"]').val();
+            let endDate = $(educationRows[i]).find('input[name="endDate"]').val();
+            let percentage = $(educationRows[i]).find('input[name="percentage"]').val();
+            let backlog = $(educationRows[i]).find('input[name="backlog"]').val();
     
             if (i < education.length) {
                 // Update existing education data
-                education[i].degree = degree
-                education[i].schoolCollage = schoolCollage
-                education[i].startDate = startDate
-                education[i].endDate = endDate
-                education[i].percentage = percentage
-                education[i].backlog = backlog
+                education[i].degree = degree;
+                education[i].schoolCollage = schoolCollage;
+                education[i].startDate = startDate;
+                education[i].endDate = endDate;
+                education[i].percentage = percentage;
+                education[i].backlog = backlog;
             } else {
                 // Add new education data
                 education.push({
@@ -254,7 +247,7 @@ $(document).ready(function () {
                     endDate: endDate,
                     percentage: percentage,
                     backlog: backlog
-                })
+                });
             }
         }
             
@@ -264,7 +257,6 @@ $(document).ready(function () {
         
         $('#submit').text('Save')
     }
-
     //Onclick edit button edit button the all thing work
     $(document).on('click', '.edit-btn', function () {
         let studentId = $(this).data('student-id')
@@ -285,31 +277,28 @@ $(document).ready(function () {
     //Onclick then deleteEducation Data find after that remove the education row
     $(document).on('click', '#edu-delete', function () {
 
-        deleteEducationData($(this).closest('tr'))
+        deleteEducationData($(this).closest('tr'));
     })
-
-
     function deleteEducationRow(row) {
         // Remove the education row from the table
-        $(row).closest('tr').remove()
+        $(row).closest('tr').remove();
     }
-
     //Delete the edcuaction data from array 
     function deleteEducationData(row) {
-        let index = $(row).closest('tr').index() // Get the index of the row
-        let studentId = currentStudentId // Assuming you have a variable currentStudentId set elsewhere
+        let index = $(row).closest('tr').index(); // Get the index of the row
+        let studentId = currentStudentId; // Assuming you have a variable currentStudentId set elsewhere
     
         if (studentId !== null && index !== -1) {
-            let studentIndex = students.findIndex(student => student.id === studentId)
+            let studentIndex = students.findIndex(student => student.id === studentId);
     
             // Remove the education data at the specified index
             if (studentIndex !== -1 && index < students[studentIndex].education.length) {
-                students[studentIndex].education.splice(index, 1)
+                students[studentIndex].education.splice(index, 1);
             }
             
         }
         // Now remove the row from the table
-        deleteEducationRow(row)
+        deleteEducationRow(row);
     }
 
     //On click the table of the first edu-show-btn then they show the details with it
@@ -319,11 +308,11 @@ $(document).ready(function () {
         let index = $(this).data('student-id')
         if (row.child.isShown()) {
             // This row is already open - close it
-            row.child.hide()
+            row.child.hide();
         }
         else {
             // Open this row
-            row.child(format(index)).show()
+            row.child(format(index)).show();
         }
     })
 
@@ -333,7 +322,7 @@ $(document).ready(function () {
         console.log(index)
         let education = students[index].education
 
-        let table2 = $(`<table class="educationTable table table-bordered border-dark text-center table-striped">`)
+        let table2 = $(`<table class="educationTable table table-bordered border-dark text-center table-striped">`);
         table2.append(`<thead class="table-info">
         <th class="text-center">Degree/Board</th>
         <th class="text-center">School/College</th>
@@ -342,12 +331,12 @@ $(document).ready(function () {
         <th class="text-center">Percentage</th>
         <th class="text-center">Backlog</th>
         </thead>
-        <tbody class="educationDataTableBody"></tbody>`)
+        <tbody class="educationDataTableBody"></tbody>`);
     
         for (let key in education) {
-            let row = `<tr><td>` + education[key].degree + `</td><td>` + education[key].schoolCollage + `</td><td>` + education[key].startDate + `</td><td>` + education[key].endDate + `</td><td>` + education[key].percentage + `</td><td>` + education[key].backlog + `</td></tr>`
-            table2.append(row)
-        }
+            let row = `<tr><td>` + education[key].degree + `</td><td>` + education[key].schoolCollage + `</td><td>` + education[key].startDate + `</td><td>` + education[key].endDate + `</td><td>` + education[key].percentage + `</td><td>` + education[key].backlog + `</td></tr>`;
+            table2.append(row);
+        };
         return (table2)
     
     }
@@ -376,20 +365,20 @@ $(document).ready(function () {
         //Fetch data from that particular student
         let education = students[id - 1].education
         //first empty table then add all row and then show the data value according to education array
-        $('#tbody').empty()
-        for (let i = 0 ; i < education.length ; i++) {
-            addNewEduRow()
-            $('#tbody tr:last-child').find('input[name="degree"]').val(education[i].degree)
-            $('#tbody tr:last-child').find('input[name="schoolCollage"]').val(education[i].schoolCollage)
-            $('#tbody tr:last-child').find('input[name="startDate"]').val(education[i].startDate)
-            $('#tbody tr:last-child').find('input[name="endDate"]').val(education[i].endDate)
-            $('#tbody tr:last-child').find('input[name="percentage"]').val(education[i].percentage)
-            $('#tbody tr:last-child').find('input[name="backlog"]').val(education[i].backlog)
+        $('#tbody').empty();
+        for (let i = 0; i < education.length; i++) {
+            addNewEduRow();
+            $('#tbody tr:last-child').find('input[name="degree"]').val(education[i].degree);
+            $('#tbody tr:last-child').find('input[name="schoolCollage"]').val(education[i].schoolCollage);
+            $('#tbody tr:last-child').find('input[name="startDate"]').val(education[i].startDate);
+            $('#tbody tr:last-child').find('input[name="endDate"]').val(education[i].endDate);
+            $('#tbody tr:last-child').find('input[name="percentage"]').val(education[i].percentage);
+            $('#tbody tr:last-child').find('input[name="backlog"]').val(education[i].backlog);
 
 
             //for the disable first two row
             if(i==0 || i==1){
-                $('#tbody tr:last-child').find('#edu-delete').prop('disabled', true)
+                $('#tbody tr:last-child').find('#edu-delete').prop('disabled', true);
             }
         }
         currentStudentId = id
@@ -415,3 +404,4 @@ $(document).ready(function () {
     }
 
 })
+    
