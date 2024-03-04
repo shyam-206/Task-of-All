@@ -138,7 +138,7 @@ $(document).ready(function () {
     }
 
     function eduValid(){
-
+        
     }
 
     //Add new data and and then push into the student data.
@@ -402,11 +402,11 @@ $(document).ready(function () {
         let tr = $('<tr></tr>')
 
         tr.html(`<td><input type="text" name="degree" class="form-control" id="degree" required></td>
-        <td><input type="text" name="schoolCollage" class="form-control" required></td>
-        <td><input type="month" name="startDate" class="form-control" required></td>
-        <td><input type="month" name="endDate" class="form-control" required></td>
-        <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100" required></td>
-        <td><input type="number" name="backlog" min="0" class="form-control" required></td>
+        <td><input type="text" name="schoolCollage" class="form-control" id="school" required></td>
+        <td><input type="month" name="startDate" class="form-control" id="startDate" required></td>
+        <td><input type="month" name="endDate" class="form-control" id="endDate" required></td>
+        <td><input type="number" name="percentage" placeholder="Don't use % sign" class="form-control" min="0" max="100" id="percentage" required></td>
+        <td><input type="number" name="backlog" min="0" class="form-control" id="backlog" required></td>
         <td class="btn-div">
             <button type="button" class="border-0 btn mx-1" id="edu-delete"><i class="fa-solid fa-trash"></i></button>
         </td>`)
