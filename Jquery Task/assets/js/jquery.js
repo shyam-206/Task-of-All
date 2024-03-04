@@ -1,18 +1,17 @@
-$(document).ready(function(){
+$(document).ready(function() {
     let nextId = 0 // Initial ID counter
     let currentStudentId = null
 
     let students = [] // Array to store student objects
-    let table = $('#table1').DataTable({
-        'responsive' : true,
-    })
+    let table = $('#table1').DataTable()
     const form = $('#myForm')
     const formHTML = form.html()
 
-    $('#addNewStudent').click(function () {
+    $(document).on('click','#addNewStudent', function () {
         $('#modal-title').text('New Student Detail')
         form.html(formHTML)
     })
+
     form.submit(function (e) {
         e.preventDefault()
         let valid = true
@@ -312,12 +311,12 @@ $(document).ready(function(){
         }
         else {
             // Open this row
-            row.child(format(index)).show();
+            row.child(formatEducation(index)).show();
         }
     })
 
     //Function for the showing working of it
-    function format(id){
+    function formatEducation(id){
         let index = students.findIndex(student => student.id === id)// ETable.append(thead)
         console.log(index)
         let education = students[index].education
@@ -402,6 +401,5 @@ $(document).ready(function(){
 
         tbody.append(tr)
     }
-
 })
     

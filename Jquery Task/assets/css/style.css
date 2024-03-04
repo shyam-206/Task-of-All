@@ -1,5 +1,5 @@
 .main{
-    background:  #f5cac3;
+    background:rgba(159, 195, 237, 0.55);
     padding:3rem 2rem;
 }
 .btn:focus,.btn:active{
@@ -13,7 +13,7 @@ label{
     width: 100%;
 }
 .modal-body{
-    background-color: #d6ccc2;
+    background-color: rgba(159, 195, 237, 0.55)
     
 }
 
