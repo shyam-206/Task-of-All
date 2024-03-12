@@ -1,4 +1,4 @@
-create table actor  (
+create table actor (
     act_id int IDENTITY(1,1) PRIMARY key,
     act_fname varchar(50),
     act_lname varchar(50),
@@ -27,13 +27,11 @@ create table movie(
 
 
 create table movie_genres (
-    mov_id int primary key,
+    mov_id int,
     gen_id int,
     foreign key (gen_id) REFERENCES genre(gen_id),
     foreign key (mov_id) REFERENCES movie(mov_id)
 )   
-
-alter table movie_genres alter column mov_id int
 
 create table movie_direction (
     mov_id int,
@@ -182,20 +180,20 @@ VALUES  (901, 3),
         (904, 4),
         (905, 5),
         (906, 6),
-        (907, 2), -- Inception (Christopher Nolan)
-        (908, 5), -- Titanic (James Cameron)
-        (909, 1), -- Forrest Gump (Steven Spielberg)
-        (910, 3), -- My Name Is Khan (Karan Johar)
-        (911, 4), -- Dilwale Dulhania Le Jayenge (Aditya Chopra)
-        (912, 4), -- Baahubali: The Beginning (SS Rajamouli)
-        (913, 2), -- The Dark Knight (Christopher Nolan)
-        (914, 6), -- PK (Rajkumar Hirani)
-        (915, 11), -- Avatar (James Cameron)
-        (916, 12), -- Lagaan (Ashutosh Gowariker)
-        (917, 11), -- Inglourious Basterds (Quentin Tarantino)
-        (918, 10), -- Petta (Karthik Subbaraj)
-        (919, 2), -- Interstellar (Christopher Nolan)
-        (920, 13); -- Drishyam (Jeethu Joseph)
+        (907, 2), 
+        (908, 5), 
+        (909, 1), 
+        (910, 3), 
+        (911, 4), 
+        (912, 4), 
+        (913, 2), 
+        (914, 6), 
+        (915, 11),
+        (916, 12), 
+        (917, 11), 
+        (918, 10), 
+        (919, 2), 
+        (920, 13);
 
 
 -- INSERT DATA INTO REVIWER TABLE
@@ -257,9 +255,7 @@ VALUES  (1, 903, 'Raj'),
         (11, 917, 'Aldo Raine'),
         (10, 918, 'Kaali'),
         (12, 919, 'Cooper'),
-        (13, 920, 'Georgekutty')
-
-
+        (13, 920, 'Georgekutty');
 
 select * from actor
 select * from director
@@ -270,145 +266,6 @@ select * from movie_direction
 select * from reviewer 
 select * from rating
 select * from movie_cast
-
-
--- Inserting sample data into the 'actor' table
-INSERT INTO actor (act_fname, act_lname, act_gender) VALUES 
-('Tom', 'Hanks', 'Male'),
-('Leonardo', 'DiCaprio', 'Male'),
-('Emma', 'Stone', 'Female'),
-('Shahrukh', 'Khan', 'Male'),
-('Deepika', 'Padukone', 'Female'),
-('Prabhas', NULL, 'Male'),
-('Christian', 'Bale', 'Male'),
-('Aamir', 'Khan', 'Male'),
-('Rajinikanth', NULL, 'Male'),
-('Mohanlal', NULL, 'Male');
-
--- Inserting sample data into the 'genre' table
-INSERT INTO genre (gen_title) VALUES 
-('Action'),
-('Comedy'),
-('Drama'),
-('Thriller'),
-('Romance'),
-('Musical');
-
--- Inserting sample data into the 'director' table
-INSERT INTO director (dir_fname, dir_lname) VALUES 
-('Steven', 'Spielberg'),
-('Christopher', 'Nolan'),
-('Karan', 'Johar'),
-('SS', 'Rajamouli'),
-('James', 'Cameron'),
-('Rajkumar', 'Hirani'),
-('Sanjay', 'Leela Bhansali'),
-('Rohit', 'Shetty'),
-('Gautham', 'Menon'),
-('Jeethu', 'Joseph');
-
--- Inserting sample data into the 'movie' table
-INSERT INTO movie (mov_id, mov_title, mov_year, mov_time, mov_lang, mov_dt_rel, mov_release_country) VALUES 
-(907, 'Inception', 2010, 148, 'English', '2010-07-16', 'USA'),
-(908, 'Titanic', 1997, 195, 'English', '1997-12-19', 'USA'),
-(909, 'Forrest Gump', 1994, 142, 'English', '1994-07-06', 'USA'),
-(910, 'My Name Is Khan', 2010, 165, 'Hindi', '2010-02-12', 'India'),
-(911, 'Dilwale Dulhania Le Jayenge', 1995, 189, 'Hindi', '1995-10-20', 'India'),
-(912, 'Baahubali: The Beginning', 2015, 159, 'Telugu', '2015-07-10', 'India'),
-(913, 'The Dark Knight', 2008, 152, 'English', '2008-07-18', 'USA'),
-(914, 'PK', 2014, 153, 'Hindi', '2014-12-19', 'India'),
-(915, 'Avatar', 2009, 162, 'English', '2009-12-18', 'USA'),
-(916, 'Lagaan', 2001, 224, 'Hindi', '2001-06-15', 'India'),
-(917, 'Inglourious Basterds', 2009, 153, 'English', '2009-08-21', 'USA'),
-(918, 'Petta', 2019, 171, 'Tamil', '2019-01-10', 'India'),
-(919, 'Interstellar', 2014, 169, 'English', '2014-11-07', 'USA'),
-(920, 'Drishyam', 2013, 160, 'Malayalam', '2013-12-19', 'India');
-
--- Inserting sample data into the 'movie_genres' table
-INSERT INTO movie_genres (mov_id, gen_id) VALUES 
-(907, 4), -- Inception (Thriller)
-(908, 5), -- Titanic (Romance)
-(909, 3), -- Forrest Gump (Drama)
-(910, 3), -- My Name Is Khan (Drama)
-(910, 5), -- My Name Is Khan (Romance)
-(911, 5), -- Dilwale Dulhania Le Jayenge (Romance)
-(911, 6), -- Dilwale Dulhania Le Jayenge (Musical)
-(912, 1), -- Baahubali: The Beginning (Action)
-(912, 3), -- Baahubali: The Beginning (Drama)
-(913, 1), -- The Dark Knight (Action)
-(913, 4), -- The Dark Knight (Thriller)
-(914, 2), -- PK (Comedy)
-(914, 3), -- PK (Drama)
-(915, 1), -- Avatar (Action)
-(915, 5), -- Avatar (Romance)
-(916, 3), -- Lagaan (Drama)
-(916, 5), -- Lagaan (Romance)
-(917, 1), -- Inglourious Basterds (Action)
-(917, 4), -- Inglourious Basterds (Thriller)
-(918, 1), -- Petta (Action)
-(918, 3), -- Petta (Drama)
-(919, 1), -- Interstellar (Action)
-(919, 3), -- Interstellar (Drama)
-(920, 4); -- Drishyam (Thriller)
-
--- Inserting sample data into the 'movie_direction' table
-INSERT INTO movie_direction (mov_id, dir_id) VALUES 
-(907, 2), -- Inception (Christopher Nolan)
-(908, 5), -- Titanic (James Cameron)
-(909, 1), -- Forrest Gump (Steven Spielberg)
-(910, 3), -- My Name Is Khan (Karan Johar)
-(911, 4), -- Dilwale Dulhania Le Jayenge (Aditya Chopra)
-(912, 4), -- Baahubali: The Beginning (SS Rajamouli)
-(913, 2), -- The Dark Knight (Christopher Nolan)
-(914, 6), -- PK (Rajkumar Hirani)
-(915, 11), -- Avatar (James Cameron)
-(916, 12), -- Lagaan (Ashutosh Gowariker)
-(917, 11), -- Inglourious Basterds (Quentin Tarantino)
-(918, 10), -- Petta (Karthik Subbaraj)
-(919, 2), -- Interstellar (Christopher Nolan)
-(920, 13); -- Drishyam (Jeethu Joseph)
-
--- Inserting sample data into the 'reviewer' table
-INSERT INTO reviewer (rev_name) VALUES 
-('John Smith'),
-('Emily Johnson'),
-('Michael Brown'),
-('Sarah Wilson'),
-('David Jones');
-
--- Inserting sample data into the 'rating' table
-INSERT INTO rating (mov_id, rev_id, rev_stars, num_of_rating) VALUES 
-(907, 1, 4.5, 100),
-(908, 2, 4.8, 150),
-(909, 3, 4.7, 120),
-(910, 4, 4.5, 200),
-(911, 5, 4.6, 180),
-(912, 1, 4.9, 250),
-(913, 2, 4.7, 300),
-(914, 3, 4.8, 280),
-(915, 4, 4.6, 320),
-(916, 5, 4.5, 270),
-(917, 1, 4.7, 400),
-(918, 2, 4.9, 350),
-(919, 3, 4.6, 380),
-(920, 4, 4.7, 360);
-
--- Inserting sample data into the 'movie_cast' table
-INSERT INTO movie_cast (act_id, mov_id, role) VALUES 
-(1, 907, 'Cobb'),
-(2, 907, 'Arthur'),
-(3, 908, 'Rose'),
-(4, 910, 'Rizvan Khan'),
-(5, 911, 'Simran'),
-(6, 912, 'Baahubali'),
-(7, 913, 'Joker'),
-(8, 914, 'PK'),
-(9, 915, 'Jake Sully'),
-(10, 916, 'Bhuvan'),
-(11, 917, 'Aldo Raine'),
-(10, 918, 'Kaali'),
-(12, 919, 'Cooper'),
-(13, 920, 'Georgekutty');
 
 -- 1. From the following table, write a SQL query to find the name and year of the movies. Return movie title, movie release year
 select mov_title,mov_year from movie
@@ -448,6 +305,7 @@ select director.dir_fname , director.dir_lname from director left join movie_dir
 select distinct actor.act_fname,actor.act_lname from actor inner join movie_cast on actor.act_id = movie_cast.act_id join movie_direction on movie_cast.mov_id = movie_direction.mov_id join director on movie_direction.dir_id = director.dir_id where director.dir_fname = 'Aamir' and director.dir_lname = 'Khan'
 
 -- 13. create a stored proc to get list of movies which is 3 years old and having rating greater than 5
+select movie.mov_title from movie inner join rating on movie.mov_id = rating.mov_id where mov_year <= (year(getdate() - 3)) and rev_stars > 5
 
 -- create proc latest_movie 
 -- as
@@ -455,9 +313,10 @@ select distinct actor.act_fname,actor.act_lname from actor inner join movie_cast
 --     select movie.mov_title from movie inner join rating on movie.mov_id = rating.mov_id where mov_year <= (year(getdate() - 3)) and rev_stars > 5
 -- end;
  
-exec letest_movie
+--exec latest_movie
 
 -- 14. create a stored proc to get list of all directors who have directed more then 2 movies
+select director.dir_fname,director.dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id group by dir_fname,dir_lname having count(movie_direction.dir_id) >= 2
 
 -- create proc getListDirector
 -- as
@@ -465,9 +324,10 @@ exec letest_movie
 --     select director.dir_fname,director.dir_lname from director inner join director.dir_id = movie_direction.dir_id group by dir_fname,dir_lname having count(movie_direction.dir_id) >= 2
 -- end 
 
-exec getListDirector
+-- exec getListDirector
 
 -- 15. create a stored proc to get list of all directors which have directed a movie which have rating greater than 3.
+select distinct dir_fname,dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id join rating on movie_direction.mov_id = rating.mov_id where rev_stars >= 3
 
 -- create proc getListDirectorByRating
 -- as
@@ -475,13 +335,24 @@ exec getListDirector
 --     select distinct dir_fname,dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id join rating on movie_direction.mov_id = rating.mov_id where rev_stars >= 3
 -- end
 
-exec getListDirectorByRating
+-- exec getListDirectorByRating
 
 -- 16. create a function to get worst director according to movie rating
+select top(1) dir_fname , dir_lname from director 
+inner join movie_direction on director.dir_id = movie_direction.dir_id 
+inner join rating  on movie_direction.mov_id = rating.mov_id order by rev_stars
 
 -- 17.  create a function to get worst actor according to movie rating
+select top(1) act_fname , act_lname from actor 
+inner join movie_cast on actor.act_id = movie_cast.act_id
+inner join rating  on movie_cast.mov_id = rating.mov_id order by rev_stars
 
 -- 18. create a parameterized stored procedure which accept genre and give movie accordingly
+select m.mov_title,m.mov_year,m.mov_lang 
+from movie as m inner join movie_genres as mg 
+on m.mov_id = mg.mov_id 
+inner join genre as g on mg.gen_id = g.gen_id 
+where g.gen_title = 'Drama'
 
 -- create proc getMovieByGenre @genTitle varchar(50)
 -- as
@@ -493,7 +364,7 @@ exec getListDirectorByRating
 -- 	where g.gen_title = @genTitle
 -- end
 
-exec getMovieByGenre @genTitle = 'Drama'
+-- exec getMovieByGenre @genTitle = 'Drama'
 
 -- 19. get list of movies that start with 'a' and end with letter 'e' and movie released before 2015
 select distinct mov_title from movie where mov_title like 'a%e' and mov_year < 2015
@@ -502,19 +373,36 @@ select distinct mov_title from movie where mov_title like 'a%e' and mov_year < 2
 select mov_title from movie inner join movie_cast on movie.mov_id = movie_cast.mov_id  group by mov_title having count(act_id) > 1
 
 -- 21. create a function to get reviewer that has rated highest number of movies
-
-
+select top(1) rev_name as reviewer_name ,rev_stars
+from reviewer inner join rating on reviewer.rev_id = rating.rev_id group by rev_name,rev_stars order by rev_stars desc
+ 
 -- 22. From the following tables, write a query in SQL to generate a report, which contain the fields movie title, name of the female actor, year of the movie, role, movie genres, the director, date of release, and rating of that movie.
+
+select mov_title,act_fname,act_lname,mov_year,role,string_agg(gen_title,',') as gen_title ,dir_fname,dir_lname,mov_dt_rel,rev_stars
+from movie inner join movie_cast on movie.mov_id = movie_cast.mov_id
+join actor on movie_cast.act_id = actor.act_id
+join movie_direction on movie.mov_id = movie_direction.mov_id
+join director on movie_direction.dir_id = director.dir_id
+join movie_genres on movie.mov_id = movie_genres.mov_id
+join genre on movie_genres.gen_id = genre.gen_id
+join rating on movie.mov_id = rating.mov_id
+where act_gender = 'Female'
+group by  mov_title,act_fname,act_lname,mov_year,role,dir_fname,dir_lname,mov_dt_rel,rev_stars
 
 
 -- 23. From the following tables, write a SQL query to find the years when most of the ‘Mystery Movies’ produced. Count the number of generic title and compute their average rating. Group the result set on movie release year, generic title. Return movie year, generic title, number of generic title and average rating.
+select mov_year,gen_title ,count(genre.gen_id) as [Number of genre title] ,avg(rev_stars) [Avg Rating] from movie inner join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id join rating on movie.mov_id = rating.mov_id where gen_title = 'mystery' group by mov_year,gen_title,rev_stars order by mov_year 
 
 -- 24.  From the following tables, write a SQL query to find the highest-rated ‘Mystery Movies’. Return the title, year, and rating
 
+select mov_title as movie_name , mov_year as movie_year,rev_stars from movie inner join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id join rating on movie.mov_id = rating.mov_id  group by mov_title, mov_year, rev_stars ,gen_title having gen_title = 'Mystery' order by rev_stars 
+
 -- 25. create a function which accepts genre and suggests best movie according to ratings 
+select top(1) mov_title as movie_name,rev_stars as rating,gen_title from movie inner join rating on movie.mov_id = rating.mov_id join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id where gen_title = 'bollywood' group by mov_title,rev_stars,gen_title order by rev_stars desc
 
 -- 26. create a function which accepts genre and suggests best director according to ratings. 
+select top(1) dir_fname,dir_lname,rev_stars from movie inner join movie_direction on movie.mov_id = movie_direction.mov_id inner join director on movie_direction.dir_id = director.dir_id inner join rating on movie.mov_id = rating.mov_id group by mov_title , dir_fname,dir_lname, rev_stars order by rev_stars desc
 
 -- 27. create a function that accepts a genre and give random movie according to genre
 
-   
+select top(1) mov_title,rev_stars as rating from movie inner join rating on movie.mov_id = rating.mov_id join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id where gen_title = 'drama' order by newid()
