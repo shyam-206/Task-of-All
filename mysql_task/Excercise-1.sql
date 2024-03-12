@@ -448,6 +448,7 @@ select director.dir_fname , director.dir_lname from director left join movie_dir
 select distinct actor.act_fname,actor.act_lname from actor inner join movie_cast on actor.act_id = movie_cast.act_id join movie_direction on movie_cast.mov_id = movie_direction.mov_id join director on movie_direction.dir_id = director.dir_id where director.dir_fname = 'Aamir' and director.dir_lname = 'Khan'
 
 -- 13. create a stored proc to get list of movies which is 3 years old and having rating greater than 5
+
 -- create proc latest_movie 
 -- as
 -- begin 
@@ -457,6 +458,7 @@ select distinct actor.act_fname,actor.act_lname from actor inner join movie_cast
 exec letest_movie
 
 -- 14. create a stored proc to get list of all directors who have directed more then 2 movies
+
 -- create proc getListDirector
 -- as
 -- begin 
@@ -466,6 +468,7 @@ exec letest_movie
 exec getListDirector
 
 -- 15. create a stored proc to get list of all directors which have directed a movie which have rating greater than 3.
+
 -- create proc getListDirectorByRating
 -- as
 -- begin
