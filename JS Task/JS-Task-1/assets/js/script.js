@@ -55,7 +55,7 @@ function addRow() {
     <td class="btn-div">
     <div class="d-flex">
     <button type="button" class="border btn mx-1 text-center"><i class="fa-solid fa-file-pen"></i></button>
-    <button type="button" class="border btn mx-1" onclick="deleteRow"><i class="fa-solid fa-trash"></i></button>
+    <button type="button" class="border btn mx-1" onclick="deleteRow(this)"><i class="fa-solid fa-trash"></i></button>
 </div>
     </td>`
 
@@ -63,5 +63,6 @@ function addRow() {
 }
 
 function deleteRow(This) {
+    console.log(This.closest('tr'))
     This.closest('tr').remove();
 }
