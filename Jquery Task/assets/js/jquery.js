@@ -275,7 +275,7 @@ $(document).ready(function() {
 
     //Onclick then deleteEducation Data find after that remove the education row
     $(document).on('click', '#edu-delete', function () {
-
+        
         deleteEducationData($(this).closest('tr'));
     })
     function deleteEducationRow(row) {

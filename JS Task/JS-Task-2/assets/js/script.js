@@ -332,20 +332,25 @@ function addNewEduRow(){
 }
 
 function deleteEducationData(row) {
-    var index = row.closest('tr').rowIndex; // Get the index of the row
-    var studentId = currentStudentId; // Assuming you have a variable currentStudentId set elsewhere
 
-    if (studentId !== null && index !== -1) {
-        var studentIndex = students.findIndex(function(student) {
-            return student.id === studentId;
-        });
-
-        // Remove the education data at the specified index
-        if (studentIndex !== -1 && index < students[studentIndex].education.length) {
-            students[studentIndex].education.splice(index, 1);
+    // Remove the row from the table
+    
+    // Find the index of the row in the table
+    var index = row.closest('tr').rowIndex;
+    console.log(index);
+    
+    // If the row exists in the table
+    if (index !== -1) {
+        // Find the corresponding student object
+        var student = students.find(student => student.id === currentStudentId);
+        
+        // If the student object exists
+        if (student) {
+            // Remove the education data at the specified index
+            student.education.splice(index - 1, 1);
         }
     }
-    // Now remove the row from the table
+    
     deleteEducationRow(row);
 }
 
