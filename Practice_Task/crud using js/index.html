@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud</title>
+
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.dataTables.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <header class="d-flex align-items-center justify-content-between">
+        <h3>Employee Detail</h3>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="addNewEmp"
+            data-bs-toggle="modal"
+            data-bs-target="#modal"
+          >
+            Add New Employee
+          </button>
+        </div>
+      </header>
+
+      <div class="table-responsive">
+        <table class="table" id="table1">
+          <thead>
+            <th></th>
+            <th>Employee Name</th>
+            <th>Employee Email</th>
+            <th>Employee Number</th>
+            <th>Employee Address</th>
+            <th>Employee Position</th>
+            <th>Action</th>
+          </thead>
+          <tbody id="tbody1">
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div
+      class="modal"
+      id="modal"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h4>Employee Information</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="#" id="myForm">
+              <div class="row">
+                <div class="col-lg-6">
+                  <label for="name" class="h5 form-label">Employee Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Employee Full Name"
+                    id="name"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <label for="email" class="h5 form-label">Employee Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Employee Email"
+                    id="email"
+                  />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-6">
+                  <label for="number" class="h5 form-label">Employee Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Employee Mobile Number"
+                    id="number"
+                  />
+                </div>
+                <div class="col-lg-6">
+                  <label for="address" class="h5 form-label"
+                    >Employee Address</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Address"
+                    id="address"
+                  />
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-lg-12">
+                  <h5>Position For Apply</h5>
+                  <select name="position" id="selectPosition" class="form-select">
+                    <option>Full Stack Development</option>
+                    <option>Mern Stack Development</option>
+                    <option>Mean Stack Development</option>
+                    <option>Data Scientist</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="table-responsive subtable mt-5">
+                <div class="d-flex justify-content-between">
+                  <h3>Add Past Details</h3>
+                  <div>
+                    <button type="button" class="btn btn-primary" onclick="addRow()">
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+                <table class="table">
+                  <thead>
+                    <th>Experience</th>
+                    <th>Salary you Want?</th>
+                    <th>Last Company Name</th>
+                    <th>Last Company Position</th>
+                    <th></th>
+                  </thead>
+                  <tbody id="tbody2">
+                    <tr>
+                      <td>
+                        <input type="number" name="exp" class="form-control exp" />
+                      </td>
+                      <td>
+                        <input type="number" name="salary" class="form-control salary"/>
+                      </td>
+                      <td>
+                        <input type="text" name="lastCompName" class="form-control lastCompName" />
+                      </td>
+                      <td>
+                        <input type="text" name="lastCompPostion" class="form-control lastCompPostion"/>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-primary" onclick="deleteRow(this)">
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" form="myForm" class="btn btn-primary" id="save">Save</button>
+            <button type="button" form="myForm" class="btn btn-success" id="update" style="display: none;">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://cdn.datatables.net/2.0.1/js/dataTables.min.js"></script>
+    <script src="./assets/js/custom.js"></script>
+  </body>
+</html>

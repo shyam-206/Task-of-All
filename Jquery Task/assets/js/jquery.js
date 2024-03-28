@@ -185,14 +185,14 @@ $(document).ready(function() {
 
         table.clear().draw()
         students.forEach(student => {
-            let row = [`<button type="button" class="btn btn-light border-0 rounded-circle" id="edu-show-btn"}  data-student-id="${student.id}" ><i class="fa-solid fa-angle-down"></i></button>`,
+            let row = [`<button type="button" class="btn btn-light border-0 rounded-circle" id="edu-show-btn"     data-student-id="${student.id}" ><i class="fa-solid fa-angle-down"></i></button>`,
                 student.firstName,
                 student.lastName,
                 student.dateOfBirth,
                 student.email,
                 student.address,
                 student.graduationYear,
-                `<div class="d-flex">
+                `<div class="d-flex">   
                             <button class="btn btn-primary btn-sm edit-btn mx-2" data-student-id="${student.id}" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
                             <button class="btn btn-danger btn-sm delete-btn mx-2" data-student-id="${student.id}">Delete</button>
                 </div>`]
