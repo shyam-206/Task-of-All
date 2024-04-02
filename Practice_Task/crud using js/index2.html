@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css" />
+    <script defer src="./assets/bootstrap/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <form action="" id="form" class="row g-3" novalidate>
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required />
+        <div class="valid-feedback">Look's good</div>
+        <div class="invalid-feedback">input must be correct</div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
+
+    <script>
+      let form = document.querySelector("#form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!form.checkVisibility()) {
+          e.stopPropagation();
+        }
+
+        form.classList.add('was-validated')
+      });
+    </script>
+  </body>
+</html>

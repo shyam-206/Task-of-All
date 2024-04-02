@@ -100,6 +100,8 @@ function display() {
 
         table.row.add(row).draw()
     })
+
+    
 }
 display()
 
