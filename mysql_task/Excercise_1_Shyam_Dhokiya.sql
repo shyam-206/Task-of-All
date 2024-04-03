@@ -1,4 +1,4 @@
-create table actor (
+create table actor  (
     act_id int IDENTITY(1,1) PRIMARY key,
     act_fname varchar(50),
     act_lname varchar(50),
@@ -274,7 +274,7 @@ select mov_title,mov_year from movie
 select mov_year from movie
 
 -- 3. From the following table, write a SQL query to find the movie that was released in 1999. Return movie title.
-select mov_title from movie where mov_year = 2001
+select mov_title from movie where mov_year = 1999
 
 -- 4. From the following table, write a SQL query to find those movies, which were released before 1998. Return movie title.
 select mov_title from movie where mov_year < 1998
@@ -307,35 +307,13 @@ select distinct actor.act_fname,actor.act_lname from actor inner join movie_cast
 -- 13. create a stored proc to get list of movies which is 3 years old and having rating greater than 5
 select movie.mov_title from movie inner join rating on movie.mov_id = rating.mov_id where mov_year <= (year(getdate() - 3)) and rev_stars > 5
 
--- create proc latest_movie 
--- as
--- begin 
---     select movie.mov_title from movie inner join rating on movie.mov_id = rating.mov_id where mov_year <= (year(getdate() - 3)) and rev_stars > 5
--- end;
- 
---exec latest_movie
 
 -- 14. create a stored proc to get list of all directors who have directed more then 2 movies
 select director.dir_fname,director.dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id group by dir_fname,dir_lname having count(movie_direction.dir_id) >= 2
 
--- create proc getListDirector
--- as
--- begin 
---     select director.dir_fname,director.dir_lname from director inner join director.dir_id = movie_direction.dir_id group by dir_fname,dir_lname having count(movie_direction.dir_id) >= 2
--- end 
-
--- exec getListDirector
 
 -- 15. create a stored proc to get list of all directors which have directed a movie which have rating greater than 3.
 select distinct dir_fname,dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id join rating on movie_direction.mov_id = rating.mov_id where rev_stars >= 3
-
--- create proc getListDirectorByRating
--- as
--- begin
---     select distinct dir_fname,dir_lname from director inner join movie_direction on director.dir_id = movie_direction.dir_id join rating on movie_direction.mov_id = rating.mov_id where rev_stars >= 3
--- end
-
--- exec getListDirectorByRating
 
 -- 16. create a function to get worst director according to movie rating
 select top(1) dir_fname , dir_lname from director 
@@ -353,18 +331,6 @@ from movie as m inner join movie_genres as mg
 on m.mov_id = mg.mov_id 
 inner join genre as g on mg.gen_id = g.gen_id 
 where g.gen_title = 'Drama'
-
--- create proc getMovieByGenre @genTitle varchar(50)
--- as
--- begin
--- 	select m.mov_title,m.mov_year,m.mov_lang 
--- 	from movie as m inner join movie_genres as mg 
--- 	on m.mov_id = mg.mov_id 
--- 	inner join genre as g on mg.gen_id = g.gen_id 
--- 	where g.gen_title = @genTitle
--- end
-
--- exec getMovieByGenre @genTitle = 'Drama'
 
 -- 19. get list of movies that start with 'a' and end with letter 'e' and movie released before 2015
 select distinct mov_title from movie where mov_title like 'a%e' and mov_year < 2015
@@ -405,4 +371,4 @@ select top(1) dir_fname,dir_lname,rev_stars from movie inner join movie_directio
 
 -- 27. create a function that accepts a genre and give random movie according to genre
 
-select top(1) mov_title,rev_stars as rating from movie inner join rating on movie.mov_id = rating.mov_id join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id where gen_title = 'drama' order by newid()
+select mov_title,rev_stars as rating from movie inner join rating on movie.mov_id = rating.mov_id join movie_genres on movie.mov_id = movie_genres.mov_id join genre on movie_genres.gen_id = genre.gen_id where gen_title = 'drama' order by rev_stars desc
