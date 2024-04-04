@@ -67,7 +67,7 @@
           </div>
 
           <div class="modal-body">
-            <form action="#" id="myForm" novalidate>
+            <form action="#" id="myForm">
               <div class="row">
                 <div class="col-lg-6">
                   <label for="name" class="h5 form-label">Employee Name</label>
@@ -175,8 +175,8 @@
             >
               Close
             </button>
-            <button type="submit" class="btn btn-primary" id="save" data-bs-dismiss="modal">Save</button>
-            <button type="button" class="btn btn-success" id="update" style="display: none;" data-bs-dismiss="modal">Update</button>
+            <button type="submit" form="myForm" class="btn btn-primary" id="save" data-bs-dismiss="modal">Save</button>
+            <button type="button" form="myForm" class="btn btn-success" id="update" style="display: none;" data-bs-dismiss="modal">Update</button>
           </div>
         </div>
       </div>

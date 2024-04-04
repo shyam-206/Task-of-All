@@ -52,6 +52,7 @@ form.addEventListener('submit', function (e) {
       employee.subDetails.push(subEmployeeDetail)
     })
 
+    console.log(employee);
     //PUSH NEW EMPLOYEE IN THE ARRAY
     data.push(employee)
     //UPLOAD THE DATA INTO LOCAL STORAGE
@@ -82,7 +83,7 @@ function display() {
     //     tbody1.innerHTML += row
     // })
 
-    table.clear().draw()
+    table.clear().draw(false)
 
     data.forEach((emp,index) => {
         let row = [
@@ -98,7 +99,7 @@ function display() {
             </div>`
         ]
 
-        table.row.add(row).draw()
+        table.row.add(row).draw(false)
     })
 
     
