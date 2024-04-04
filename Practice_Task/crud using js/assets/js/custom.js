@@ -130,16 +130,30 @@ function formatNestedDetails(index){
         <th class="text-center">Last Company Name</th>
         <th class="text-center">Last Company Position</th>
         </thead>
-        <tbody class="educationDataTableBody"></tbody>`)
+        <tbody class=""></tbody>`)
 
-
+    let totalSalary = 0
     for(let i in subDetails){
-        let row = `<tr><td>` +  subDetails[i] .experience + `</td><td>` + 
-                                subDetails[i].salary    + `</td><td>` + 
-                                subDetails[i].lastComapanyName + `</td><td>` + 
-                                subDetails[i].lastCompanyPosition + `</td></tr>`
+        totalSalary += Number(subDetails[i].salary)
+        let row = `<tr>
+                    <td>` +  subDetails[i].experience + `</td><td>` + 
+                    subDetails[i].salary  + `</td><td>` + 
+                    subDetails[i].lastComapanyName + `</td><td>` + 
+                    subDetails[i].lastCompanyPosition + `</td></tr>`
         table2.append(row)
     }
+
+    
+    let tr = `<tfoot>
+                <tr>
+                <td></td>
+                <td class="text-center">${totalSalary}</td>
+                <td></td>
+                <td></td>
+                </tr>
+              </tfoot>`
+    table2.append(tr)
+
     return(table2)
 }
 function editEmp(index) {
