@@ -103,7 +103,8 @@ function display() {
 
     
 }
-display()
+// display()
+uploadLocalStorageData()
 
 function nestTable(index,This){
     let tr = This.closest('tr')
