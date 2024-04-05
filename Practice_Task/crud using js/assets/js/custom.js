@@ -203,8 +203,7 @@ function editEmp(index) {
 let update = document.getElementById('update')
 
 update.addEventListener('click', function () {
-  
-  
+
   let employee = data[currentRowToEdit]
 
   let empName = document.getElementById('name'),
