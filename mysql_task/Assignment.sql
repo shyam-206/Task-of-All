@@ -12,6 +12,8 @@ create table products_a3 (
     ProductPrice decimal(10, 2)
 );
  
+
+ 
  -- Create Orders table
 create table orders_a3 (
     OrderID int primary key identity(101,1) ,
