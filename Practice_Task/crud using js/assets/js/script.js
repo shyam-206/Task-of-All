@@ -217,10 +217,12 @@ function uploadLocalStorageData() {
 
 function deleteRow(row){
 
+  debugger
 
   let index = row.closest('tr').rowIndex;
   console.log(index);
-    
+
+  
   // If the row exists in the table
   if (index !== -1) {
 
