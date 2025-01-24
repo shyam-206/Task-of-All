@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .email-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .email-body {
+            padding: 20px;
+        }
+        .email-body p {
+            line-height: 1.6;
+            margin: 0 0 15px;
+        }
+        .reset-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .reset-btn:hover {
+            background-color: #0056b3;
+        }
+        .email-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #777;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Password Reset Request</h1>
+        </div>
+        <div class="email-body">
+            <p>Hello [User's Name],</p>
+            <p>We received a request to reset your password. If you didn't request this, please ignore this email.</p>
+            <p>To reset your password, click the button below:</p>
+            <p><a href="[ResetPasswordLink]" class="reset-btn">Reset Password</a></p>
+            <p>This link will expire in 24 hours.</p>
+            <p>Thank you,<br>Task Management</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow">
+        <div class="card-header text-center bg-primary text-white">
+          <h4>Forgot Password</h4>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" #forgetPasswordForm="ngForm">
+            <div class="form-group mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="email"
+                required
+                email
+                #emailInput="ngModel"
+              />
+              <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                <small *ngIf="emailInput.errors?.required">Email is required.</small>
+                <small *ngIf="emailInput.errors?.email">Please enter a valid email address.</small>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="forgetPasswordForm.invalid"
+            >
+              Send Reset Link
+            </button>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <small><a routerLink="/login" class="text-muted">Back to Login</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
